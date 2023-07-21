@@ -5,6 +5,7 @@ namespace QuanLyKhachSan
         public Form1()
         {
             InitializeComponent();
+            //day la tesst
         }
     }
 }
