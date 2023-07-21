@@ -1,11 +1,11 @@
-namespace QuanLyKhachSan
+﻿namespace QuanLyKhachSan
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-            //day la tesst
+            //đây là test 2
         }
     }
 }
