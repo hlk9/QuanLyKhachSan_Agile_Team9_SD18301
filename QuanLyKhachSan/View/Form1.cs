@@ -5,7 +5,7 @@
         public Form1()
         {
             InitializeComponent();
-            //đây là test 2
+            
         }
     }
 }
