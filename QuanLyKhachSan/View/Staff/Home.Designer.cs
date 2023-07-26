@@ -33,12 +33,12 @@
             button1 = new Button();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            button2 = new Button();
-            textBox1 = new TextBox();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            textBox1 = new TextBox();
+            button2 = new Button();
             button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -101,36 +101,30 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thao tác";
             // 
-            // button2
+            // button6
             // 
-            button2.BackColor = Color.MistyRose;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(19, 119);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 42);
-            button2.TabIndex = 3;
-            button2.Text = "Trả Phòng";
-            button2.UseVisualStyleBackColor = false;
+            button6.BackColor = Color.MistyRose;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Location = new Point(595, 45);
+            button6.Name = "button6";
+            button6.Size = new Size(291, 42);
+            button6.TabIndex = 8;
+            button6.Text = "Các phòng đang được sử dụng";
+            button6.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // button5
             // 
-            textBox1.Location = new Point(604, 161);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Tra cứu nhanh phòng";
-            textBox1.Size = new Size(195, 23);
-            textBox1.TabIndex = 4;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.LightGreen;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(818, 154);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 35);
-            button3.TabIndex = 5;
-            button3.Text = "Tìm";
-            button3.UseVisualStyleBackColor = false;
+            button5.BackColor = Color.MistyRose;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.Location = new Point(140, 45);
+            button5.Name = "button5";
+            button5.Size = new Size(191, 42);
+            button5.TabIndex = 7;
+            button5.Text = "Các phòng đang được sử dụng";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -144,29 +138,36 @@
             button4.Text = "Dịch vụ yêu cầu";
             button4.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // button3
             // 
-            button5.BackColor = Color.MistyRose;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(140, 45);
-            button5.Name = "button5";
-            button5.Size = new Size(191, 42);
-            button5.TabIndex = 7;
-            button5.Text = "Các phòng đang được sử dụng";
-            button5.UseVisualStyleBackColor = false;
+            button3.BackColor = Color.LightGreen;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Location = new Point(818, 154);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 35);
+            button3.TabIndex = 5;
+            button3.Text = "Tìm";
+            button3.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // textBox1
             // 
-            button6.BackColor = Color.MistyRose;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.Location = new Point(595, 45);
-            button6.Name = "button6";
-            button6.Size = new Size(291, 42);
-            button6.TabIndex = 8;
-            button6.Text = "Các phòng đang được sử dụng";
-            button6.UseVisualStyleBackColor = false;
+            textBox1.Location = new Point(604, 161);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Tra cứu nhanh phòng";
+            textBox1.Size = new Size(195, 23);
+            textBox1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.MistyRose;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(19, 119);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 42);
+            button2.TabIndex = 3;
+            button2.Text = "Trả Phòng";
+            button2.UseVisualStyleBackColor = false;
             // 
             // button7
             // 
