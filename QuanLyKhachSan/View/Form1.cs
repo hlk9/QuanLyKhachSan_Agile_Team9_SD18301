@@ -9,6 +9,7 @@ namespace QuanLyKhachSan
            
             InitializeComponent();
             //GenerateUser();
+            //123
 
         }
         public void GenerateRoom()
