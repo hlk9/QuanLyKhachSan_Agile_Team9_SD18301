@@ -10,16 +10,10 @@ namespace QuanLyKhachSan
             InitializeComponent();
             //GenerateUser();
             //123
-            Button a = new Button();
-            a.Text = "Đây là 1";
-            Button b = new Button();
-            b.Text = "Đây là 2";
-            Button c = new Button();
-            c.Text = "Đây là 3";
+            GenerateCustomer();
+            GenerateBill();
 
-            tabPage1.Controls.Add(a);
-            tabPage2.Controls.Add(b);
-         
+
 
         }
         public void GenerateRoom()
@@ -52,6 +46,29 @@ namespace QuanLyKhachSan
             string raw = JsonSerializer.Serialize(lstUser);
             string fileData = "UserData.json";
             File.WriteAllText(fileData, raw);
+        }
+        public void GenerateBill()
+        {
+            List<Bill> lstBill = new List<Bill>();
+            lstBill.Add(new Bill("B001","CT001","R002",null,DateTime.Parse("2023-07-28"),DateTime.Parse("2023-08-03"),1200000,false));
+            lstBill.Add(new Bill("B002", "CT002", "R006", null, DateTime.Parse("2023-06-01"), DateTime.Parse("2023-06-07"), 800000, true));
+            lstBill.Add(new Bill("B003", "CT004", "R007", null, DateTime.Parse("2023-08-03"), DateTime.Parse("2023-08-13"), 2500000, false));
+            string raw = JsonSerializer.Serialize(lstBill);
+            string fileData = "BillData.json";
+            File.WriteAllText(fileData, raw);
+        }
+        public void GenerateCustomer()
+        {
+            List<Customer> customers = new List<Customer>();
+            customers.Add(new Customer("CT001","Nguyễn Văn A","Hà Nội","008098757686","0987668686","NoName@gmail.com"));
+            customers.Add(new Customer("CT002", "Phạm Văn B", "Hà Nam", "008089432444", "0354767585", "alo123@gmail.com"));
+            customers.Add(new Customer("CT003", "Trịnh Hồng C", "TP HCM", "056888878959", "0445768321", "hmmaibaothe@gmail.com"));
+            customers.Add(new Customer("CT004", "Lương Huỳnh D", "Đà Nẵng", "097675849354", "0965879685", "saolainoithe@gmail.com"));
+            string raw = JsonSerializer.Serialize(customers);
+            string fileData = "CustomerData.json";
+            File.WriteAllText(fileData, raw);
+
+
         }
 
     }
