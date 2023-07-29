@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyKhachSan.Modal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace QuanLyKhachSan.View.Staff
 {
     public partial class Home : Form
     {
+        List<Room> lstRoom;
+
         public Home()
         {
+            lstRoom = new List<Room>();
             InitializeComponent();
         }
 

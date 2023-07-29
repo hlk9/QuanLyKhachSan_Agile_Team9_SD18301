@@ -6,10 +6,20 @@ namespace QuanLyKhachSan
     {
         public Form1()
         {
-           
+
             InitializeComponent();
             //GenerateUser();
             //123
+            Button a = new Button();
+            a.Text = "Đây là 1";
+            Button b = new Button();
+            b.Text = "Đây là 2";
+            Button c = new Button();
+            c.Text = "Đây là 3";
+
+            tabPage1.Controls.Add(a);
+            tabPage2.Controls.Add(b);
+         
 
         }
         public void GenerateRoom()
@@ -43,6 +53,6 @@ namespace QuanLyKhachSan
             string fileData = "UserData.json";
             File.WriteAllText(fileData, raw);
         }
-        
+
     }
 }
