@@ -16,6 +16,8 @@ namespace QuanLyKhachSan
     {
         List<Room> listRoom = new List<Room>();
 
+        List<Bill> billList = new List<Bill>();
+
         string _roomID;
 
         public Booking()
@@ -46,12 +48,10 @@ namespace QuanLyKhachSan
                     if (row.Cells[4].Value == "Đã đặt")
                     {
                         row.DefaultCellStyle.BackColor = Color.Red;
-                    } 
+                    }
                 }
-            }         
+            }
         }
-
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -62,8 +62,12 @@ namespace QuanLyKhachSan
         {
             int rowIndex = e.RowIndex;
 
-            if (rowIndex < 0)
+            if (rowIndex < 0 || dtgDatPhong.Rows[rowIndex].Cells[4].Value == "Đã đặt")
             {
+                txtRoomID.Text = "";
+                txtRoomName.Text = "";
+                txtRoomClass.Text = "";
+                txtCost.Text = "";
                 return;
             }
             else

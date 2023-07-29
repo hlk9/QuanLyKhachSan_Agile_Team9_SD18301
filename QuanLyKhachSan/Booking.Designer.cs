@@ -325,7 +325,7 @@
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.FromArgb(192, 0, 0);
+            btnClose.BackColor = Color.Red;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnClose.Location = new Point(553, 623);
             btnClose.Name = "btnClose";
