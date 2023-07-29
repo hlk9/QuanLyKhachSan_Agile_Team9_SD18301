@@ -32,53 +32,66 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             dataGridView1 = new DataGridView();
+            lblShow = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(26, 38);
+            label1.Location = new Point(12, 38);
             label1.Name = "label1";
-            label1.Size = new Size(97, 26);
+            label1.Size = new Size(111, 26);
             label1.TabIndex = 0;
             label1.Text = "Search:";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtSearch
             // 
             txtSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             txtSearch.Location = new Point(129, 38);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(439, 30);
+            txtSearch.Size = new Size(430, 30);
             txtSearch.TabIndex = 1;
             // 
             // btnSearch
             // 
             btnSearch.BackColor = Color.White;
             btnSearch.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSearch.Location = new Point(593, 37);
+            btnSearch.Location = new Point(598, 37);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(117, 29);
             btnSearch.TabIndex = 2;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(26, 87);
+            dataGridView1.Location = new Point(12, 180);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(684, 351);
+            dataGridView1.Size = new Size(703, 351);
             dataGridView1.TabIndex = 3;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // lblShow
+            // 
+            lblShow.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lblShow.Location = new Point(12, 98);
+            lblShow.Name = "lblShow";
+            lblShow.Size = new Size(703, 56);
+            lblShow.TabIndex = 4;
+            lblShow.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ViewRoom
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(722, 450);
+            ClientSize = new Size(727, 543);
+            Controls.Add(lblShow);
             Controls.Add(dataGridView1);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
@@ -98,5 +111,6 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private DataGridView dataGridView1;
+        private Label lblShow;
     }
 }
