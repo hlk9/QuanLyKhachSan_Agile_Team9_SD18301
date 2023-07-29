@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dtgListRoom = new DataGridView();
             lblTitle = new Label();
             button1 = new Button();
             label1 = new Label();
@@ -40,18 +40,25 @@
             textBox1 = new TextBox();
             button2 = new Button();
             button7 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgListRoom).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dtgListRoom
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 304);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(899, 297);
-            dataGridView1.TabIndex = 0;
+            dtgListRoom.AllowUserToAddRows = false;
+            dtgListRoom.AllowUserToDeleteRows = false;
+            dtgListRoom.AllowUserToResizeColumns = false;
+            dtgListRoom.AllowUserToResizeRows = false;
+            dtgListRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgListRoom.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            dtgListRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgListRoom.Location = new Point(12, 304);
+            dtgListRoom.Name = "dtgListRoom";
+            dtgListRoom.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dtgListRoom.RowTemplate.Height = 25;
+            dtgListRoom.Size = new Size(899, 297);
+            dtgListRoom.TabIndex = 0;
             // 
             // lblTitle
             // 
@@ -122,7 +129,7 @@
             button5.Name = "button5";
             button5.Size = new Size(191, 42);
             button5.TabIndex = 7;
-            button5.Text = "Các phòng đang được sử dụng";
+            button5.Text = "Huỷ phòng";
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
@@ -190,10 +197,10 @@
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Controls.Add(lblTitle);
-            Controls.Add(dataGridView1);
+            Controls.Add(dtgListRoom);
             Name = "Home";
             Text = "Home";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgListRoom).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -202,7 +209,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dtgListRoom;
         private Label lblTitle;
         private Button button1;
         private Label label1;
