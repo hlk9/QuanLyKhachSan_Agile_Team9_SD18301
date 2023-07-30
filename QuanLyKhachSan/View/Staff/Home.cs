@@ -31,15 +31,22 @@ namespace QuanLyKhachSan.View.Staff
             Type type = typeof(Room);
             int a = type.GetProperties().Length;
             dtgListRoom.ColumnCount = a;
-            dtgListRoom.Rows.Clear();
+           
             dtgListRoom.Columns[0].Name = "STT";
             dtgListRoom.Columns[1].Name = "Tên phòng";
             dtgListRoom.Columns[2].Name = "Hạng phòng";
             dtgListRoom.Columns[3].Name = "Trạng thái";
             dtgListRoom.Columns[4].Name = "Giá";
-            foreach (Room room in lstRoom)
+            dtgListRoom.Rows.Clear();
+            for (int i=0;i<lstRoom.Count;i++)
             {
-                dtgListRoom.Rows.Add(stt++, room.RoomName, room.RoomClass, room.Status == true ? "Trống" : "Đang phục vụ", room.Cost);
+                
+                dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost);
+                if (lstRoom[i].Status == false)
+                {
+                    dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                }
+
 
             }
         }
