@@ -30,16 +30,17 @@
         {
             dtgListRoom = new DataGridView();
             lblTitle = new Label();
-            button1 = new Button();
+            btnDatphong = new Button();
             label1 = new Label();
             groupBox1 = new GroupBox();
             button6 = new Button();
-            button5 = new Button();
+            btnHuyPhong = new Button();
             button4 = new Button();
             button3 = new Button();
             textBox1 = new TextBox();
-            button2 = new Button();
+            btnTraPhong = new Button();
             button7 = new Button();
+            lblCurrentName = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgListRoom).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -59,6 +60,7 @@
             dtgListRoom.RowTemplate.Height = 25;
             dtgListRoom.Size = new Size(899, 297);
             dtgListRoom.TabIndex = 0;
+            dtgListRoom.CellClick += dtgListRoom_CellClick;
             // 
             // lblTitle
             // 
@@ -70,17 +72,17 @@
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Welcome";
             // 
-            // button1
+            // btnDatphong
             // 
-            button1.BackColor = Color.MistyRose;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(19, 45);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 42);
-            button1.TabIndex = 2;
-            button1.Text = "Đặt phòng";
-            button1.UseVisualStyleBackColor = false;
+            btnDatphong.BackColor = Color.MistyRose;
+            btnDatphong.FlatStyle = FlatStyle.Flat;
+            btnDatphong.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDatphong.Location = new Point(19, 45);
+            btnDatphong.Name = "btnDatphong";
+            btnDatphong.Size = new Size(75, 42);
+            btnDatphong.TabIndex = 2;
+            btnDatphong.Text = "Đặt phòng";
+            btnDatphong.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -95,12 +97,12 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(button6);
-            groupBox1.Controls.Add(button5);
+            groupBox1.Controls.Add(btnHuyPhong);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnTraPhong);
+            groupBox1.Controls.Add(btnDatphong);
             groupBox1.Location = new Point(12, 56);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(899, 195);
@@ -120,18 +122,18 @@
             button6.Text = "Các phòng đang được sử dụng";
             button6.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnHuyPhong
             // 
-            button5.BackColor = Color.MistyRose;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(140, 45);
-            button5.Name = "button5";
-            button5.Size = new Size(191, 42);
-            button5.TabIndex = 7;
-            button5.Text = "Huỷ phòng";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            btnHuyPhong.BackColor = Color.MistyRose;
+            btnHuyPhong.FlatStyle = FlatStyle.Flat;
+            btnHuyPhong.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnHuyPhong.Location = new Point(140, 45);
+            btnHuyPhong.Name = "btnHuyPhong";
+            btnHuyPhong.Size = new Size(191, 42);
+            btnHuyPhong.TabIndex = 7;
+            btnHuyPhong.Text = "Huỷ phòng";
+            btnHuyPhong.UseVisualStyleBackColor = false;
+            btnHuyPhong.Click += button5_Click;
             // 
             // button4
             // 
@@ -164,17 +166,18 @@
             textBox1.Size = new Size(195, 23);
             textBox1.TabIndex = 4;
             // 
-            // button2
+            // btnTraPhong
             // 
-            button2.BackColor = Color.MistyRose;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(19, 119);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 42);
-            button2.TabIndex = 3;
-            button2.Text = "Trả Phòng";
-            button2.UseVisualStyleBackColor = false;
+            btnTraPhong.BackColor = Color.MistyRose;
+            btnTraPhong.FlatStyle = FlatStyle.Flat;
+            btnTraPhong.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTraPhong.Location = new Point(19, 119);
+            btnTraPhong.Name = "btnTraPhong";
+            btnTraPhong.Size = new Size(75, 42);
+            btnTraPhong.TabIndex = 3;
+            btnTraPhong.Text = "Trả Phòng";
+            btnTraPhong.UseVisualStyleBackColor = false;
+            btnTraPhong.Click += button2_Click;
             // 
             // button7
             // 
@@ -188,11 +191,21 @@
             button7.Text = "Thoát";
             button7.UseVisualStyleBackColor = false;
             // 
+            // lblCurrentName
+            // 
+            lblCurrentName.AutoSize = true;
+            lblCurrentName.Location = new Point(773, 269);
+            lblCurrentName.Name = "lblCurrentName";
+            lblCurrentName.Size = new Size(38, 15);
+            lblCurrentName.TabIndex = 10;
+            lblCurrentName.Text = "label2";
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(923, 613);
+            Controls.Add(lblCurrentName);
             Controls.Add(button7);
             Controls.Add(groupBox1);
             Controls.Add(label1);
@@ -221,5 +234,9 @@
         private Button button3;
         private TextBox textBox1;
         private Button button7;
+        private Label lblCurrentName;
+        private Button btnDatphong;
+        private Button btnHuyPhong;
+        private Button btnTraPhong;
     }
 }
