@@ -44,7 +44,11 @@ namespace QuanLyKhachSan.Modal
         }
         public double TotalPay()
         {
-            return this.TotalCost + (this.TotalCost * 10);
+            double days = (checkOutDate - bookingDate).TotalDays;
+
+            double cost = totalCost * days;
+
+            return cost + (cost * 10);
         }
     }
 }
