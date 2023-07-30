@@ -16,7 +16,9 @@ namespace QuanLyKhachSan
     {
         List<Room> listRoom = new List<Room>();
 
-        List<Bill> billList = new List<Bill>();
+        List<Bill> listBill = new List<Bill>();
+
+        List<Customer> listCus = new List<Customer>();
 
         string _roomID;
 
@@ -25,6 +27,12 @@ namespace QuanLyKhachSan
             InitializeComponent();
             string rawData = File.ReadAllText("RoomData.json");
             listRoom = JsonSerializer.Deserialize<List<Room>>(rawData);
+
+            string rawBill = File.ReadAllText("BillData.json");
+            listBill = JsonSerializer.Deserialize<List<Bill>>(rawBill);
+
+            string rawCus = File.ReadAllText("CustomerData.json");
+            listCus = JsonSerializer.Deserialize<List<Customer>>(rawCus);
             loadData();
         }
 
@@ -80,6 +88,44 @@ namespace QuanLyKhachSan
                 txtRoomClass.Text = obj.RoomClass.ToString();
                 txtCost.Text = obj.Cost.ToString();
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Customer cus = new Customer();
+            Bill bill = new Bill();
+            Room room = new Room();
+
+            bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
+            bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
+            bill.TotalCost = double.Parse(txtCost.Text);
+
+            cus.Name = txtName.Text;
+            cus.Email = txtEmail.Text;
+            cus.PhoneNumer = txtPhone.Text;
+            cus.CMND = txtCMND.Text;
+
+            try
+            {
+                listBill.Add(bill);
+                listCus.Add(cus);
+
+                (from ojb in listRoom
+                 where ojb.RoomID == txtRoomID.Text
+                 select ojb).ToList().ForEach(x => x.Status = false);
+
+                string rawBill = JsonSerializer.Serialize(listBill);
+                File.WriteAllText("BillData.json", rawBill);
+
+                string rawCus = JsonSerializer.Serialize(listCus);
+                File.WriteAllText("CustomerData.json", rawCus);
+
+                loadData();
+
+                MessageBox.Show("Đặt phòng thành công!!");
+            }
+            catch { }
+
         }
     }
 }

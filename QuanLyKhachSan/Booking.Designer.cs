@@ -33,11 +33,11 @@
             label3 = new Label();
             label4 = new Label();
             groupBox1 = new GroupBox();
+            dtpCheckOut = new DateTimePicker();
+            dtpCheckIn = new DateTimePicker();
             txtCost = new TextBox();
-            txtCheckOut = new TextBox();
             txtRoomClass = new TextBox();
             txtRoomName = new TextBox();
-            txtCheckIn = new TextBox();
             txtRoomID = new TextBox();
             label7 = new Label();
             label6 = new Label();
@@ -103,11 +103,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dtpCheckOut);
+            groupBox1.Controls.Add(dtpCheckIn);
             groupBox1.Controls.Add(txtCost);
-            groupBox1.Controls.Add(txtCheckOut);
             groupBox1.Controls.Add(txtRoomClass);
             groupBox1.Controls.Add(txtRoomName);
-            groupBox1.Controls.Add(txtCheckIn);
             groupBox1.Controls.Add(txtRoomID);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
@@ -123,6 +123,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin đặt phòng";
             // 
+            // dtpCheckOut
+            // 
+            dtpCheckOut.CustomFormat = "yyyy-MM-dd";
+            dtpCheckOut.Format = DateTimePickerFormat.Custom;
+            dtpCheckOut.Location = new Point(567, 70);
+            dtpCheckOut.Name = "dtpCheckOut";
+            dtpCheckOut.Size = new Size(204, 30);
+            dtpCheckOut.TabIndex = 15;
+            // 
+            // dtpCheckIn
+            // 
+            dtpCheckIn.CustomFormat = "yyyy-MM-dd";
+            dtpCheckIn.Format = DateTimePickerFormat.Custom;
+            dtpCheckIn.Location = new Point(567, 32);
+            dtpCheckIn.Name = "dtpCheckIn";
+            dtpCheckIn.Size = new Size(204, 30);
+            dtpCheckIn.TabIndex = 14;
+            // 
             // txtCost
             // 
             txtCost.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -130,14 +148,6 @@
             txtCost.Name = "txtCost";
             txtCost.Size = new Size(204, 27);
             txtCost.TabIndex = 13;
-            // 
-            // txtCheckOut
-            // 
-            txtCheckOut.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCheckOut.Location = new Point(567, 72);
-            txtCheckOut.Name = "txtCheckOut";
-            txtCheckOut.Size = new Size(204, 27);
-            txtCheckOut.TabIndex = 12;
             // 
             // txtRoomClass
             // 
@@ -154,14 +164,6 @@
             txtRoomName.Name = "txtRoomName";
             txtRoomName.Size = new Size(204, 27);
             txtRoomName.TabIndex = 10;
-            // 
-            // txtCheckIn
-            // 
-            txtCheckIn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCheckIn.Location = new Point(567, 33);
-            txtCheckIn.Name = "txtCheckIn";
-            txtCheckIn.Size = new Size(204, 27);
-            txtCheckIn.TabIndex = 9;
             // 
             // txtRoomID
             // 
@@ -345,6 +347,7 @@
             btnSave.TabIndex = 9;
             btnSave.Text = "Nhận Phòng";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // Booking
             // 
@@ -380,10 +383,8 @@
         private Label label7;
         private Label label6;
         private TextBox txtCost;
-        private TextBox txtCheckOut;
         private TextBox txtRoomClass;
         private TextBox txtRoomName;
-        private TextBox txtCheckIn;
         private GroupBox groupBox2;
         private Label label12;
         private Label label11;
@@ -398,5 +399,7 @@
         private DataGridView dtgDatPhong;
         private Button btnClose;
         private Button btnSave;
+        private DateTimePicker dtpCheckOut;
+        private DateTimePicker dtpCheckIn;
     }
 }
