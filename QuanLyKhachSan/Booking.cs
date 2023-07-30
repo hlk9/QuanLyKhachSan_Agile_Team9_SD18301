@@ -105,19 +105,20 @@ namespace QuanLyKhachSan
             cus.PhoneNumer = txtPhone.Text;
             cus.CMND = txtCMND.Text;
 
+            if (listRoom.Select(x => x.RoomID).FirstOrDefault() == txtRoomID.Text)
+            {
+                room.Status = false;
+            }
+
             try
             {
                 listBill.Add(bill);
                 listCus.Add(cus);
+                listRoom.Add(room);
 
                 //(from ojb in listRoom
-                // where ojb.RoomID == txtRoomID.Text
-                // select ojb).ToList().ForEach(x => x.Status =false);
-
-                if(listRoom.Select(x => x.RoomID).FirstOrDefault() == txtRoomID.Text)
-                {
-                    room.Status = bool.Parse("false");
-                }
+                //where ojb.RoomID == txtRoomID.Text
+                //select ojb).ToList().ForEach(x => x.Status =false);              
 
                 string rawBill = JsonSerializer.Serialize(listBill);
                 File.WriteAllText("BillData.json", rawBill);
