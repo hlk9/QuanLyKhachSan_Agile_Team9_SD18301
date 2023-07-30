@@ -55,7 +55,7 @@ namespace QuanLyKhachSan
                 {
                     if (row.Cells[4].Value == "Đã đặt")
                     {
-                        row.DefaultCellStyle.BackColor = Color.Red;
+                        row.Visible = false;
                     }
                 }
             }
@@ -110,15 +110,24 @@ namespace QuanLyKhachSan
                 listBill.Add(bill);
                 listCus.Add(cus);
 
-                (from ojb in listRoom
-                 where ojb.RoomID == txtRoomID.Text
-                 select ojb).ToList().ForEach(x => x.Status = false);
+              for (int i=0; i<listRoom.Count;i++)
+                {
+                    if (listRoom[i].RoomID == txtRoomID.Text)
+                    {
+                        listRoom[i].Status = false;
+                        break;
+                    }    
+                }    
 
                 string rawBill = JsonSerializer.Serialize(listBill);
                 File.WriteAllText("BillData.json", rawBill);
 
                 string rawCus = JsonSerializer.Serialize(listCus);
                 File.WriteAllText("CustomerData.json", rawCus);
+                // à đây, chỗ này ông đã lưu áci file roomdata đâu :v
+
+                string rawRoom = JsonSerializer.Serialize(listRoom);
+                File.WriteAllText("RoomData.json", rawRoom);
 
                 loadData();
 
