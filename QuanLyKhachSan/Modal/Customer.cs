@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyKhachSan.Modal
 {
-    internal class Customer
+     internal class Customer
     {
         private string idCustomer;
         private string name;
