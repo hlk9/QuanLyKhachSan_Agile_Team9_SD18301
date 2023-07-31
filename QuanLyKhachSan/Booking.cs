@@ -55,7 +55,7 @@ namespace QuanLyKhachSan
                 {
                     if (row.Cells[4].Value == "Đã đặt")
                     {
-                        //row.Visible = false;
+                        row.Visible = false;
                     }
                 }
             }
@@ -63,7 +63,7 @@ namespace QuanLyKhachSan
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void dtgDatPhong_CellClick(object sender, DataGridViewCellEventArgs e)
