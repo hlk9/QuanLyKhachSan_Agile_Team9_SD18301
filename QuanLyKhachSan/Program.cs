@@ -13,5 +13,6 @@ namespace QuanLyKhachSan
             ApplicationConfiguration.Initialize();
             Application.Run(new MainQuanLy());
         }
+        
     }
 }
