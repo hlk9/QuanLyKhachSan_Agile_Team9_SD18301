@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace QuanLyKhachSan
 {
-    public partial class Booking : Form
+    public partial class MainQuanLy : Form
     {
-        public Booking()
+        public MainQuanLy()
         {
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void txtRoomID_TextChanged(object sender, EventArgs e)
+        private void MainQuanLy_Load(object sender, EventArgs e)
         {
 
         }

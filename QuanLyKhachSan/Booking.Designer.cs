@@ -171,6 +171,7 @@
             txtRoomID.Name = "txtRoomID";
             txtRoomID.Size = new Size(204, 27);
             txtRoomID.TabIndex = 8;
+            txtRoomID.TextChanged += txtRoomID_TextChanged;
             // 
             // label7
             // 
