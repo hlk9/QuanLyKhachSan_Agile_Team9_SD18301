@@ -31,8 +31,8 @@ namespace QuanLyKhachSan.View.Staff
             //lstBill = JsonSerializer.Deserialize<List<Bill>>(rawBill);
             //string rawCus = File.ReadAllText("CustomerData.json");
             //lstCustomer = JsonSerializer.Deserialize<List<Customer>>(rawCus);
-           
-          
+
+
             LoadData();
         }
 
@@ -87,15 +87,21 @@ namespace QuanLyKhachSan.View.Staff
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-           FormCheckOutRoom a = new FormCheckOutRoom();
+
+            FormCheckOutRoom a = new FormCheckOutRoom();
             a.Show();
-            
+
         }
 
         private void A_FormClosed(object? sender, FormClosedEventArgs e)
         {
             this.Show();
+        }
+
+        private void btnDatphong_Click(object sender, EventArgs e)
+        {
+            Booking booking = new Booking();
+            booking.Show();           
         }
     }
 }

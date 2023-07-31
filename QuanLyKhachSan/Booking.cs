@@ -55,7 +55,7 @@ namespace QuanLyKhachSan
                 {
                     if (row.Cells[4].Value == "Đã đặt")
                     {
-                        row.Visible = false;
+                        //row.Visible = false;
                     }
                 }
             }
@@ -94,11 +94,14 @@ namespace QuanLyKhachSan
         {
             Customer cus = new Customer();
             Bill bill = new Bill();
-            Room room = new Room();
-
+          
+            bill.IdBill = Guid.NewGuid().ToString();
             bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
             bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
             bill.TotalCost = double.Parse(txtCost.Text);
+            bill.RoomID = txtRoomID.Text;
+            cus.IdCustomer = Guid.NewGuid().ToString();
+            bill.IdCustomer = cus.IdCustomer.ToString();
 
             cus.Name = txtName.Text;
             cus.Email = txtEmail.Text;
