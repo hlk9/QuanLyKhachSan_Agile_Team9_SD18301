@@ -45,6 +45,7 @@ namespace QuanLyKhachSan.Modal
         public double TotalPay()
         {
             double days = (checkOutDate - bookingDate).TotalDays;
+            if(days <= 0) days = 1;
 
             double cost = totalCost * days;
 
