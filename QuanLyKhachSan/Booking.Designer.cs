@@ -30,18 +30,12 @@
         {
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             groupBox1 = new GroupBox();
             dtpCheckOut = new DateTimePicker();
             dtpCheckIn = new DateTimePicker();
-            txtCost = new TextBox();
-            txtRoomClass = new TextBox();
-            txtRoomName = new TextBox();
             txtRoomID = new TextBox();
             label7 = new Label();
             label6 = new Label();
-            label5 = new Label();
             groupBox2 = new GroupBox();
             rtxtNote = new RichTextBox();
             txtName = new TextBox();
@@ -56,6 +50,7 @@
             dtgDatPhong = new DataGridView();
             btnClose = new Button();
             btnSave = new Button();
+            lblHienThi = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
@@ -74,51 +69,25 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(25, 33);
+            label2.Location = new Point(25, 55);
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
             label2.TabIndex = 2;
-            label2.Text = "Room ID: ";
+            label2.Text = "Đặt Phòng:";
             label2.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(25, 75);
-            label3.Name = "label3";
-            label3.Size = new Size(125, 25);
-            label3.TabIndex = 3;
-            label3.Text = "Room Class:";
-            label3.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(25, 113);
-            label4.Name = "label4";
-            label4.Size = new Size(125, 25);
-            label4.TabIndex = 4;
-            label4.Text = "Room Name:";
-            label4.TextAlign = ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dtpCheckOut);
             groupBox1.Controls.Add(dtpCheckIn);
-            groupBox1.Controls.Add(txtCost);
-            groupBox1.Controls.Add(txtRoomClass);
-            groupBox1.Controls.Add(txtRoomName);
             groupBox1.Controls.Add(txtRoomID);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 73);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(826, 162);
+            groupBox1.Size = new Size(826, 129);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin đặt phòng";
@@ -141,34 +110,10 @@
             dtpCheckIn.Size = new Size(204, 30);
             dtpCheckIn.TabIndex = 14;
             // 
-            // txtCost
-            // 
-            txtCost.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCost.Location = new Point(567, 109);
-            txtCost.Name = "txtCost";
-            txtCost.Size = new Size(204, 27);
-            txtCost.TabIndex = 13;
-            // 
-            // txtRoomClass
-            // 
-            txtRoomClass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRoomClass.Location = new Point(156, 73);
-            txtRoomClass.Name = "txtRoomClass";
-            txtRoomClass.Size = new Size(204, 27);
-            txtRoomClass.TabIndex = 11;
-            // 
-            // txtRoomName
-            // 
-            txtRoomName.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRoomName.Location = new Point(156, 111);
-            txtRoomName.Name = "txtRoomName";
-            txtRoomName.Size = new Size(204, 27);
-            txtRoomName.TabIndex = 10;
-            // 
             // txtRoomID
             // 
             txtRoomID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRoomID.Location = new Point(156, 32);
+            txtRoomID.Location = new Point(156, 54);
             txtRoomID.Name = "txtRoomID";
             txtRoomID.Size = new Size(204, 27);
             txtRoomID.TabIndex = 8;
@@ -193,16 +138,6 @@
             label6.Text = "Check In:";
             label6.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label5
-            // 
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(436, 111);
-            label5.Name = "label5";
-            label5.Size = new Size(125, 25);
-            label5.TabIndex = 5;
-            label5.Text = "Cost:";
-            label5.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // groupBox2
             // 
             groupBox2.Controls.Add(rtxtNote);
@@ -216,7 +151,7 @@
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(label8);
             groupBox2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            groupBox2.Location = new Point(12, 241);
+            groupBox2.Location = new Point(12, 208);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(826, 174);
             groupBox2.TabIndex = 6;
@@ -317,7 +252,7 @@
             // dtgDatPhong
             // 
             dtgDatPhong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatPhong.Location = new Point(12, 436);
+            dtgDatPhong.Location = new Point(12, 478);
             dtgDatPhong.Name = "dtgDatPhong";
             dtgDatPhong.RowHeadersWidth = 51;
             dtgDatPhong.RowTemplate.Height = 29;
@@ -329,7 +264,7 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.Location = new Point(553, 623);
+            btnClose.Location = new Point(561, 677);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(115, 46);
             btnClose.TabIndex = 8;
@@ -341,7 +276,7 @@
             // 
             btnSave.BackColor = SystemColors.ActiveCaption;
             btnSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.Location = new Point(696, 623);
+            btnSave.Location = new Point(694, 677);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(119, 46);
             btnSave.TabIndex = 9;
@@ -349,11 +284,24 @@
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
+            // lblHienThi
+            // 
+            lblHienThi.BorderStyle = BorderStyle.Fixed3D;
+            lblHienThi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHienThi.ImageAlign = ContentAlignment.MiddleRight;
+            lblHienThi.Location = new Point(12, 404);
+            lblHienThi.Name = "lblHienThi";
+            lblHienThi.Size = new Size(826, 51);
+            lblHienThi.TabIndex = 10;
+            lblHienThi.TextAlign = ContentAlignment.MiddleCenter;
+            lblHienThi.Click += lblHienThi_Click;
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 681);
+            ClientSize = new Size(850, 749);
+            Controls.Add(lblHienThi);
             Controls.Add(btnSave);
             Controls.Add(btnClose);
             Controls.Add(dtgDatPhong);
@@ -375,16 +323,10 @@
         #endregion
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Label label4;
         private GroupBox groupBox1;
-        private Label label5;
         private TextBox txtRoomID;
         private Label label7;
         private Label label6;
-        private TextBox txtCost;
-        private TextBox txtRoomClass;
-        private TextBox txtRoomName;
         private GroupBox groupBox2;
         private Label label12;
         private Label label11;
@@ -401,5 +343,6 @@
         private Button btnSave;
         private DateTimePicker dtpCheckOut;
         private DateTimePicker dtpCheckIn;
+        private Label lblHienThi;
     }
 }
