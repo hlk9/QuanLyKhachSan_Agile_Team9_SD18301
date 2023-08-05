@@ -262,7 +262,7 @@
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.Red;
+            btnClose.BackColor = Color.White;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnClose.Location = new Point(561, 677);
             btnClose.Name = "btnClose";
@@ -274,7 +274,7 @@
             // 
             // btnSave
             // 
-            btnSave.BackColor = SystemColors.ActiveCaption;
+            btnSave.BackColor = Color.White;
             btnSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnSave.Location = new Point(694, 677);
             btnSave.Name = "btnSave";
