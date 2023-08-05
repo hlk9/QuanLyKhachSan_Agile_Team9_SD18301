@@ -1,0 +1,18 @@
+[
+    {
+        "UserName": "staff",
+        "Password": "123",
+        "Role": [
+            "Staff",
+            "View Room"
+        ]
+    },
+    {
+        "UserName": "manager",
+        "Password": "123",
+        "Role": [
+            "Manager",
+            "Edit Room"
+        ]
+    }
+]
