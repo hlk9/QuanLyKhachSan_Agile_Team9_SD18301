@@ -73,7 +73,6 @@ namespace QuanLyKhachSan
             if (rowIndex < 0)
             {
                 txtRoomID.Text = "";
-                txtCost.Text = "";
                 return;
             }
             else
