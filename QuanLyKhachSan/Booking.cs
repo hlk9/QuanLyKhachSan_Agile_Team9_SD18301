@@ -73,8 +73,6 @@ namespace QuanLyKhachSan
             if (rowIndex < 0 || dtgDatPhong.Rows[rowIndex].Cells[4].Value == "Đã đặt")
             {
                 txtRoomID.Text = "";
-                txtRoomName.Text = "";
-                txtRoomClass.Text = "";
                 txtCost.Text = "";
                 return;
             }
@@ -84,8 +82,6 @@ namespace QuanLyKhachSan
 
                 var obj = listRoom.FirstOrDefault(x => x.RoomID == _roomID);
                 txtRoomID.Text = obj.RoomID.ToString();
-                txtRoomName.Text = obj.RoomName.ToString();
-                txtRoomClass.Text = obj.RoomClass.ToString();
                 txtCost.Text = obj.Cost.ToString();
             }
         }
@@ -94,7 +90,7 @@ namespace QuanLyKhachSan
         {
             Customer cus = new Customer();
             Bill bill = new Bill();
-          
+
             bill.IdBill = Guid.NewGuid().ToString();
             bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
             bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
@@ -106,21 +102,21 @@ namespace QuanLyKhachSan
             cus.Name = txtName.Text;
             cus.Email = txtEmail.Text;
             cus.PhoneNumer = txtPhone.Text;
-            cus.CMND = txtCMND.Text;           
+            cus.CMND = txtCMND.Text;
 
             try
             {
                 listBill.Add(bill);
                 listCus.Add(cus);
 
-              for (int i=0; i<listRoom.Count;i++)
+                for (int i = 0; i < listRoom.Count; i++)
                 {
                     if (listRoom[i].RoomID == txtRoomID.Text)
                     {
                         listRoom[i].Status = false;
                         break;
-                    }    
-                }    
+                    }
+                }
 
                 string rawBill = JsonSerializer.Serialize(listBill);
                 File.WriteAllText("BillData.json", rawBill);
