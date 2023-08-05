@@ -1,1 +1,93 @@
-[{"RoomID":"R001","RoomClass":"Standard Room","RoomName":"ST101","Status":false,"Cost":800000},{"RoomID":"R002","RoomClass":"Standard Room","RoomName":"ST102","Status":false,"Cost":1200000},{"RoomID":"R003","RoomClass":"Standard Room","RoomName":"ST103","Status":false,"Cost":900000},{"RoomID":"R004","RoomClass":"Standard Room","RoomName":"ST104","Status":true,"Cost":1000000},{"RoomID":"R005","RoomClass":"Standard Room","RoomName":"ST105","Status":true,"Cost":800000},{"RoomID":"R006","RoomClass":"Standard Room","RoomName":"ST202","Status":false,"Cost":800000},{"RoomID":"R007","RoomClass":"Deluxe Room","RoomName":"DL303","Status":true,"Cost":2500000},{"RoomID":"R008","RoomClass":"Deluxe Room","RoomName":"DL301","Status":true,"Cost":3000000},{"RoomID":"R009","RoomClass":"Deluxe Room","RoomName":"DL302","Status":true,"Cost":8000000},{"RoomID":"R010","RoomClass":"Deluxe Room","RoomName":"DL305","Status":true,"Cost":4000000},{"RoomID":"R011","RoomClass":"Deluxe Room","RoomName":"DL401","Status":false,"Cost":8000000},{"RoomID":"R012","RoomClass":"VIP Room","RoomName":"VI402","Status":true,"Cost":20000000},{"RoomID":"R001","RoomClass":"VIP Room","RoomName":"VI404","Status":true,"Cost":20000000}]
+[
+    {
+        "RoomID": "R001",
+        "RoomClass": "Standard Room",
+        "RoomName": "ST101",
+        "Status": false,
+        "Cost": 800000
+    },
+    {
+        "RoomID": "R002",
+        "RoomClass": "Standard Room",
+        "RoomName": "ST102",
+        "Status": false,
+        "Cost": 1200000
+    },
+    {
+        "RoomID": "R003",
+        "RoomClass": "Standard Room",
+        "RoomName": "ST103",
+        "Status": false,
+        "Cost": 900000
+    },
+    {
+        "RoomID": "R004",
+        "RoomClass": "Standard Room",
+        "RoomName": "ST104",
+        "Status": true,
+        "Cost": 1000000
+    },
+    {
+        "RoomID": "R005",
+        "RoomClass": "Standard Room",
+        "RoomName": "ST105",
+        "Status": true,
+        "Cost": 800000
+    },
+    {
+        "RoomID": "R006",
+        "RoomClass": "Standard Room",
+        "RoomName": "ST202",
+        "Status": false,
+        "Cost": 800000
+    },
+    {
+        "RoomID": "R007",
+        "RoomClass": "Deluxe Room",
+        "RoomName": "DL303",
+        "Status": true,
+        "Cost": 2500000
+    },
+    {
+        "RoomID": "R008",
+        "RoomClass": "Deluxe Room",
+        "RoomName": "DL301",
+        "Status": true,
+        "Cost": 3000000
+    },
+    {
+        "RoomID": "R009",
+        "RoomClass": "Deluxe Room",
+        "RoomName": "DL302",
+        "Status": true,
+        "Cost": 8000000
+    },
+    {
+        "RoomID": "R010",
+        "RoomClass": "Deluxe Room",
+        "RoomName": "DL305",
+        "Status": true,
+        "Cost": 4000000
+    },
+    {
+        "RoomID": "R011",
+        "RoomClass": "Deluxe Room",
+        "RoomName": "DL401",
+        "Status": false,
+        "Cost": 8000000
+    },
+    {
+        "RoomID": "R012",
+        "RoomClass": "VIP Room",
+        "RoomName": "VI402",
+        "Status": true,
+        "Cost": 20000000
+    },
+    {
+        "RoomID": "R001",
+        "RoomClass": "VIP Room",
+        "RoomName": "VI404",
+        "Status": true,
+        "Cost": 20000000
+    }
+]

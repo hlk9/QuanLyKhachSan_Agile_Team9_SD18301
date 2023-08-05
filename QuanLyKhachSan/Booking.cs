@@ -88,50 +88,59 @@ namespace QuanLyKhachSan
         private void btnSave_Click(object sender, EventArgs e)
         {
             Customer cus = new Customer();
-            Bill bill = new Bill();
 
-            bill.IdBill = Guid.NewGuid().ToString();
-            bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
-            bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
-            bill.TotalCost = double.Parse(txtCost.Text);
-            bill.RoomID = txtRoomID.Text;
+            string[] arrRoom = txtRoomID.Text.Split(',');
             cus.IdCustomer = Guid.NewGuid().ToString();
-            bill.IdCustomer = cus.IdCustomer.ToString();
-
             cus.Name = txtName.Text;
             cus.Email = txtEmail.Text;
             cus.PhoneNumer = txtPhone.Text;
             cus.CMND = txtCMND.Text;
 
-            try
+            for (int i = 0; i < arrRoom.Length; i++)
             {
-                listBill.Add(bill);
-                listCus.Add(cus);
-
-                for (int i = 0; i < listRoom.Count; i++)
+                var x = listRoom.FirstOrDefault(a => a.RoomName == arrRoom[i]);
+                if (x != null)
                 {
-                    if (listRoom[i].RoomID == txtRoomID.Text)
+                    Bill bill = new Bill();
+                    bill.IdBill = Guid.NewGuid().ToString();
+                    bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
+                    bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
+                    bill.TotalCost = double.Parse(x.Cost.ToString());
+                    bill.RoomID = arrRoom[i];
+                    bill.IdCustomer = cus.IdCustomer.ToString();
+                    try
                     {
-                        listRoom[i].Status = false;
-                        break;
+                        listBill.Add(bill);
+                        listCus.Add(cus);
+
+                        for (int y = 0; y < listRoom.Count; y++)
+                        {
+                            if (listRoom[y].RoomName == arrRoom[i])
+                            {
+                                listRoom[y].Status = false;
+                                continue;
+                            }
+                        }
+                        MessageBox.Show("Đặt phòng thành công!!");
                     }
+                    catch { }
                 }
-
-                string rawBill = JsonSerializer.Serialize(listBill);
-                File.WriteAllText("BillData.json", rawBill);
-
-                string rawCus = JsonSerializer.Serialize(listCus);
-                File.WriteAllText("CustomerData.json", rawCus);
-                // à đây, chỗ này ông đã lưu áci file roomdata đâu :v
-
-                string rawRoom = JsonSerializer.Serialize(listRoom);
-                File.WriteAllText("RoomData.json", rawRoom);
-
-                loadData();
-
-                MessageBox.Show("Đặt phòng thành công!!");
             }
-            catch { }
+
+            string rawBill = JsonSerializer.Serialize(listBill);
+            File.WriteAllText("BillData.json", rawBill);
+
+            string rawCus = JsonSerializer.Serialize(listCus);
+            File.WriteAllText("CustomerData.json", rawCus);
+
+            string rawRoom = JsonSerializer.Serialize(listRoom);
+            File.WriteAllText("RoomData.json", rawRoom);
+
+            loadData();
+        }
+
+        private void lblHienThi_Click(object sender, EventArgs e)
+        {
 
         }
     }

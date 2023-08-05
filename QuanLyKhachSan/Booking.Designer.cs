@@ -33,11 +33,9 @@
             groupBox1 = new GroupBox();
             dtpCheckOut = new DateTimePicker();
             dtpCheckIn = new DateTimePicker();
-            txtCost = new TextBox();
             txtRoomID = new TextBox();
             label7 = new Label();
             label6 = new Label();
-            label5 = new Label();
             groupBox2 = new GroupBox();
             rtxtNote = new RichTextBox();
             txtName = new TextBox();
@@ -71,7 +69,7 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(25, 33);
+            label2.Location = new Point(25, 55);
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
             label2.TabIndex = 2;
@@ -82,11 +80,9 @@
             // 
             groupBox1.Controls.Add(dtpCheckOut);
             groupBox1.Controls.Add(dtpCheckIn);
-            groupBox1.Controls.Add(txtCost);
             groupBox1.Controls.Add(txtRoomID);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 73);
@@ -114,18 +110,10 @@
             dtpCheckIn.Size = new Size(204, 30);
             dtpCheckIn.TabIndex = 14;
             // 
-            // txtCost
-            // 
-            txtCost.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCost.Location = new Point(156, 73);
-            txtCost.Name = "txtCost";
-            txtCost.Size = new Size(204, 27);
-            txtCost.TabIndex = 13;
-            // 
             // txtRoomID
             // 
             txtRoomID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRoomID.Location = new Point(156, 32);
+            txtRoomID.Location = new Point(156, 54);
             txtRoomID.Name = "txtRoomID";
             txtRoomID.Size = new Size(204, 27);
             txtRoomID.TabIndex = 8;
@@ -149,16 +137,6 @@
             label6.TabIndex = 6;
             label6.Text = "Check In:";
             label6.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(25, 76);
-            label5.Name = "label5";
-            label5.Size = new Size(125, 25);
-            label5.TabIndex = 5;
-            label5.Text = "Cost:";
-            label5.TextAlign = ContentAlignment.MiddleRight;
             // 
             // groupBox2
             // 
@@ -308,7 +286,7 @@
             // 
             // lblHienThi
             // 
-            lblHienThi.BorderStyle = BorderStyle.FixedSingle;
+            lblHienThi.BorderStyle = BorderStyle.Fixed3D;
             lblHienThi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             lblHienThi.ImageAlign = ContentAlignment.MiddleRight;
             lblHienThi.Location = new Point(12, 404);
@@ -316,6 +294,7 @@
             lblHienThi.Size = new Size(826, 51);
             lblHienThi.TabIndex = 10;
             lblHienThi.TextAlign = ContentAlignment.MiddleCenter;
+            lblHienThi.Click += lblHienThi_Click;
             // 
             // Booking
             // 
@@ -345,11 +324,9 @@
         private Label label1;
         private Label label2;
         private GroupBox groupBox1;
-        private Label label5;
         private TextBox txtRoomID;
         private Label label7;
         private Label label6;
-        private TextBox txtCost;
         private GroupBox groupBox2;
         private Label label12;
         private Label label11;

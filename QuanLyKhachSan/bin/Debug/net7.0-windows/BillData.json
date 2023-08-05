@@ -1,1 +1,172 @@
-[{"IdBill":"B001","IdCustomer":"CT001","RoomID":"R002","ServiceID":null,"BookingDate":"2023-07-28T00:00:00","CheckOutDate":"2023-08-03T00:00:00","TotalCost":1200000,"IsPaid":false},{"IdBill":"B002","IdCustomer":"CT002","RoomID":"R006","ServiceID":null,"BookingDate":"2023-06-01T00:00:00","CheckOutDate":"2023-06-07T00:00:00","TotalCost":800000,"IsPaid":true},{"IdBill":"B003","IdCustomer":"CT004","RoomID":"R007","ServiceID":null,"BookingDate":"2023-08-03T00:00:00","CheckOutDate":"2023-08-13T00:00:00","TotalCost":2500000,"IsPaid":true},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-08-02T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-08-04T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-31T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-30T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-30T00:00:00","TotalCost":20000000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-30T00:00:00","TotalCost":900000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-30T00:00:00","TotalCost":900000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-30T00:00:00","TotalCost":1000000,"IsPaid":false},{"IdBill":null,"IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-30T00:00:00","CheckOutDate":"2023-07-30T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":"c743cd3c-58e7-4bbc-b2ec-db705b32f136","IdCustomer":null,"RoomID":null,"ServiceID":null,"BookingDate":"2023-07-31T00:00:00","CheckOutDate":"2023-07-31T00:00:00","TotalCost":900000,"IsPaid":false},{"IdBill":"735e3202-da4d-45d7-b20f-cfd775a10a4f","IdCustomer":"8f712736-9e52-45f0-bcf7-d7fff45fe7c5","RoomID":null,"ServiceID":null,"BookingDate":"2023-07-31T00:00:00","CheckOutDate":"2023-07-31T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":"8b507ebe-631b-4df1-9723-fdf2fa4a1fd0","IdCustomer":"8a290786-7316-4a63-aef7-e6f31ac67e29","RoomID":null,"ServiceID":null,"BookingDate":"2023-07-31T00:00:00","CheckOutDate":"2023-07-31T00:00:00","TotalCost":800000,"IsPaid":false},{"IdBill":"0e29c1ee-e672-4dd5-8c03-ae986cf0608e","IdCustomer":"dcac22c8-7c17-4858-a7e9-6887550bdfcf","RoomID":null,"ServiceID":null,"BookingDate":"2023-07-31T00:00:00","CheckOutDate":"2023-07-31T00:00:00","TotalCost":8000000,"IsPaid":false},{"IdBill":"ab9f4620-9a7b-4975-ac41-f51b6bfaddb7","IdCustomer":"83d02948-a4b4-4c73-89e5-68e52f64ca66","RoomID":"R005","ServiceID":null,"BookingDate":"2023-07-31T00:00:00","CheckOutDate":"2023-07-31T00:00:00","TotalCost":800000,"IsPaid":true}]
+[
+    {
+        "IdBill": "B001",
+        "IdCustomer": "CT001",
+        "RoomID": "R002",
+        "ServiceID": null,
+        "BookingDate": "2023-07-28T00:00:00",
+        "CheckOutDate": "2023-08-03T00:00:00",
+        "TotalCost": 1200000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": "B002",
+        "IdCustomer": "CT002",
+        "RoomID": "R006",
+        "ServiceID": null,
+        "BookingDate": "2023-06-01T00:00:00",
+        "CheckOutDate": "2023-06-07T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": true
+    },
+    {
+        "IdBill": "B003",
+        "IdCustomer": "CT004",
+        "RoomID": "R007",
+        "ServiceID": null,
+        "BookingDate": "2023-08-03T00:00:00",
+        "CheckOutDate": "2023-08-13T00:00:00",
+        "TotalCost": 2500000,
+        "IsPaid": true
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-08-02T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-08-04T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-31T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-30T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-30T00:00:00",
+        "TotalCost": 20000000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-30T00:00:00",
+        "TotalCost": 900000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-30T00:00:00",
+        "TotalCost": 900000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-30T00:00:00",
+        "TotalCost": 1000000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": null,
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-30T00:00:00",
+        "CheckOutDate": "2023-07-30T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": "c743cd3c-58e7-4bbc-b2ec-db705b32f136",
+        "IdCustomer": null,
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-31T00:00:00",
+        "CheckOutDate": "2023-07-31T00:00:00",
+        "TotalCost": 900000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": "735e3202-da4d-45d7-b20f-cfd775a10a4f",
+        "IdCustomer": "8f712736-9e52-45f0-bcf7-d7fff45fe7c5",
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-31T00:00:00",
+        "CheckOutDate": "2023-07-31T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": "8b507ebe-631b-4df1-9723-fdf2fa4a1fd0",
+        "IdCustomer": "8a290786-7316-4a63-aef7-e6f31ac67e29",
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-31T00:00:00",
+        "CheckOutDate": "2023-07-31T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": "0e29c1ee-e672-4dd5-8c03-ae986cf0608e",
+        "IdCustomer": "dcac22c8-7c17-4858-a7e9-6887550bdfcf",
+        "RoomID": null,
+        "ServiceID": null,
+        "BookingDate": "2023-07-31T00:00:00",
+        "CheckOutDate": "2023-07-31T00:00:00",
+        "TotalCost": 8000000,
+        "IsPaid": false
+    },
+    {
+        "IdBill": "ab9f4620-9a7b-4975-ac41-f51b6bfaddb7",
+        "IdCustomer": "83d02948-a4b4-4c73-89e5-68e52f64ca66",
+        "RoomID": "R005",
+        "ServiceID": null,
+        "BookingDate": "2023-07-31T00:00:00",
+        "CheckOutDate": "2023-07-31T00:00:00",
+        "TotalCost": 800000,
+        "IsPaid": true
+    }
+]
