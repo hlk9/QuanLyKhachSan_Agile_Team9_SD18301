@@ -73,7 +73,7 @@
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
             label2.TabIndex = 2;
-            label2.Text = "Đặt Phỏng:";
+            label2.Text = "Đặt Phòng:";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // groupBox1
