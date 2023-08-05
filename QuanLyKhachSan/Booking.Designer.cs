@@ -52,6 +52,7 @@
             dtgDatPhong = new DataGridView();
             btnClose = new Button();
             btnSave = new Button();
+            lblHienThi = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
@@ -273,7 +274,7 @@
             // dtgDatPhong
             // 
             dtgDatPhong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatPhong.Location = new Point(12, 399);
+            dtgDatPhong.Location = new Point(12, 478);
             dtgDatPhong.Name = "dtgDatPhong";
             dtgDatPhong.RowHeadersWidth = 51;
             dtgDatPhong.RowTemplate.Height = 29;
@@ -285,7 +286,7 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.Location = new Point(559, 602);
+            btnClose.Location = new Point(561, 677);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(115, 46);
             btnClose.TabIndex = 8;
@@ -297,7 +298,7 @@
             // 
             btnSave.BackColor = SystemColors.ActiveCaption;
             btnSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.Location = new Point(693, 602);
+            btnSave.Location = new Point(694, 677);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(119, 46);
             btnSave.TabIndex = 9;
@@ -305,11 +306,23 @@
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
+            // lblHienThi
+            // 
+            lblHienThi.BorderStyle = BorderStyle.FixedSingle;
+            lblHienThi.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHienThi.ImageAlign = ContentAlignment.MiddleRight;
+            lblHienThi.Location = new Point(12, 404);
+            lblHienThi.Name = "lblHienThi";
+            lblHienThi.Size = new Size(826, 51);
+            lblHienThi.TabIndex = 10;
+            lblHienThi.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 658);
+            ClientSize = new Size(850, 749);
+            Controls.Add(lblHienThi);
             Controls.Add(btnSave);
             Controls.Add(btnClose);
             Controls.Add(dtgDatPhong);
@@ -353,5 +366,6 @@
         private Button btnSave;
         private DateTimePicker dtpCheckOut;
         private DateTimePicker dtpCheckIn;
+        private Label lblHienThi;
     }
 }
