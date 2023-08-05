@@ -69,6 +69,21 @@ namespace QuanLyKhachSan
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            var obj = lstStaff.FirstOrDefault(x => x.Id == _idWWhenClick);
+            obj.Id = txtID.Text;
+            obj.Name = txtName.Text;
+            obj.Phone = txtPhone.Text;
+            obj.Email = txtEmail.Text;
+            obj.Old = txtOld.Text;
+            obj.Address = rtxtAddress.Text;
+            obj.Position = txtPos.Text;
+
+            var rawst = JsonSerializer.Serialize(lstStaff);
+            File.WriteAllText("StaffData.json", rawst);
+
+            MessageBox.Show("Sửa thành công!!!");
+
+            loadData();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
