@@ -70,7 +70,7 @@ namespace QuanLyKhachSan
         {
             int rowIndex = e.RowIndex;
 
-            if (rowIndex < 0 || dtgDatPhong.Rows[rowIndex].Cells[4].Value == "Đã đặt")
+            if (rowIndex < 0)
             {
                 txtRoomID.Text = "";
                 txtCost.Text = "";
@@ -81,8 +81,7 @@ namespace QuanLyKhachSan
                 _roomID = dtgDatPhong.Rows[rowIndex].Cells[1].Value.ToString();
 
                 var obj = listRoom.FirstOrDefault(x => x.RoomID == _roomID);
-                txtRoomID.Text = obj.RoomID.ToString();
-                txtCost.Text = obj.Cost.ToString();
+                lblHienThi.Text = $"Mã Phòng: {obj.RoomID} -- Tên Phòng: {obj.RoomName} -- Loại Phòng: {obj.RoomClass} -- Giá: {obj.Cost}";
             }
         }
 
