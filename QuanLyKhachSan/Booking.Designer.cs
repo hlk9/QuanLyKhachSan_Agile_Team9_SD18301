@@ -33,11 +33,11 @@
             label3 = new Label();
             label4 = new Label();
             groupBox1 = new GroupBox();
+            dtpCheckOut = new DateTimePicker();
+            dtpCheckIn = new DateTimePicker();
             txtCost = new TextBox();
-            txtCheckOut = new TextBox();
             txtRoomClass = new TextBox();
             txtRoomName = new TextBox();
-            txtCheckIn = new TextBox();
             txtRoomID = new TextBox();
             label7 = new Label();
             label6 = new Label();
@@ -56,7 +56,6 @@
             dtgDatPhong = new DataGridView();
             btnClose = new Button();
             btnSave = new Button();
-            btnUpdate = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
@@ -67,7 +66,7 @@
             label1.Font = new Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(867, 61);
+            label1.Size = new Size(826, 61);
             label1.TabIndex = 1;
             label1.Text = "Đặt Phòng";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -104,11 +103,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dtpCheckOut);
+            groupBox1.Controls.Add(dtpCheckIn);
             groupBox1.Controls.Add(txtCost);
-            groupBox1.Controls.Add(txtCheckOut);
             groupBox1.Controls.Add(txtRoomClass);
             groupBox1.Controls.Add(txtRoomName);
-            groupBox1.Controls.Add(txtCheckIn);
             groupBox1.Controls.Add(txtRoomID);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
@@ -119,26 +118,36 @@
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 73);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(759, 162);
+            groupBox1.Size = new Size(826, 162);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin đặt phòng";
             // 
+            // dtpCheckOut
+            // 
+            dtpCheckOut.CustomFormat = "yyyy-MM-dd";
+            dtpCheckOut.Format = DateTimePickerFormat.Custom;
+            dtpCheckOut.Location = new Point(567, 70);
+            dtpCheckOut.Name = "dtpCheckOut";
+            dtpCheckOut.Size = new Size(204, 30);
+            dtpCheckOut.TabIndex = 15;
+            // 
+            // dtpCheckIn
+            // 
+            dtpCheckIn.CustomFormat = "yyyy-MM-dd";
+            dtpCheckIn.Format = DateTimePickerFormat.Custom;
+            dtpCheckIn.Location = new Point(567, 32);
+            dtpCheckIn.Name = "dtpCheckIn";
+            dtpCheckIn.Size = new Size(204, 30);
+            dtpCheckIn.TabIndex = 14;
+            // 
             // txtCost
             // 
             txtCost.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCost.Location = new Point(519, 111);
+            txtCost.Location = new Point(567, 109);
             txtCost.Name = "txtCost";
             txtCost.Size = new Size(204, 27);
             txtCost.TabIndex = 13;
-            // 
-            // txtCheckOut
-            // 
-            txtCheckOut.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCheckOut.Location = new Point(519, 74);
-            txtCheckOut.Name = "txtCheckOut";
-            txtCheckOut.Size = new Size(204, 27);
-            txtCheckOut.TabIndex = 12;
             // 
             // txtRoomClass
             // 
@@ -156,14 +165,6 @@
             txtRoomName.Size = new Size(204, 27);
             txtRoomName.TabIndex = 10;
             // 
-            // txtCheckIn
-            // 
-            txtCheckIn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCheckIn.Location = new Point(519, 35);
-            txtCheckIn.Name = "txtCheckIn";
-            txtCheckIn.Size = new Size(204, 27);
-            txtCheckIn.TabIndex = 9;
-            // 
             // txtRoomID
             // 
             txtRoomID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -176,7 +177,7 @@
             // label7
             // 
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label7.Location = new Point(388, 76);
+            label7.Location = new Point(436, 74);
             label7.Name = "label7";
             label7.Size = new Size(125, 25);
             label7.TabIndex = 7;
@@ -186,7 +187,7 @@
             // label6
             // 
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label6.Location = new Point(388, 37);
+            label6.Location = new Point(436, 35);
             label6.Name = "label6";
             label6.Size = new Size(125, 25);
             label6.TabIndex = 6;
@@ -196,7 +197,7 @@
             // label5
             // 
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(388, 113);
+            label5.Location = new Point(436, 111);
             label5.Name = "label5";
             label5.Size = new Size(125, 25);
             label5.TabIndex = 5;
@@ -218,7 +219,7 @@
             groupBox2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             groupBox2.Location = new Point(12, 241);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(759, 174);
+            groupBox2.Size = new Size(826, 174);
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin khách hàng";
@@ -226,7 +227,7 @@
             // rtxtNote
             // 
             rtxtNote.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            rtxtNote.Location = new Point(519, 81);
+            rtxtNote.Location = new Point(567, 83);
             rtxtNote.Name = "rtxtNote";
             rtxtNote.Size = new Size(204, 73);
             rtxtNote.TabIndex = 13;
@@ -251,7 +252,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(519, 35);
+            txtEmail.Location = new Point(567, 37);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(204, 27);
             txtEmail.TabIndex = 10;
@@ -267,7 +268,7 @@
             // label12
             // 
             label12.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label12.Location = new Point(388, 81);
+            label12.Location = new Point(436, 83);
             label12.Name = "label12";
             label12.Size = new Size(125, 25);
             label12.TabIndex = 4;
@@ -277,7 +278,7 @@
             // label11
             // 
             label11.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label11.Location = new Point(388, 38);
+            label11.Location = new Point(436, 40);
             label11.Name = "label11";
             label11.Size = new Size(125, 25);
             label11.TabIndex = 3;
@@ -321,14 +322,15 @@
             dtgDatPhong.Name = "dtgDatPhong";
             dtgDatPhong.RowHeadersWidth = 51;
             dtgDatPhong.RowTemplate.Height = 29;
-            dtgDatPhong.Size = new Size(759, 181);
+            dtgDatPhong.Size = new Size(826, 181);
             dtgDatPhong.TabIndex = 7;
+            dtgDatPhong.CellClick += dtgDatPhong_CellClick;
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.FromArgb(192, 0, 0);
+            btnClose.BackColor = Color.Red;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.Location = new Point(511, 623);
+            btnClose.Location = new Point(553, 623);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(115, 46);
             btnClose.TabIndex = 8;
@@ -340,31 +342,19 @@
             // 
             btnSave.BackColor = SystemColors.ActiveCaption;
             btnSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.Location = new Point(652, 623);
+            btnSave.Location = new Point(696, 623);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(119, 46);
             btnSave.TabIndex = 9;
             btnSave.Text = "Nhận Phòng";
             btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.BackColor = Color.Yellow;
-            btnUpdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpdate.ForeColor = Color.Black;
-            btnUpdate.Location = new Point(12, 623);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(171, 46);
-            btnUpdate.TabIndex = 10;
-            btnUpdate.Text = "Sửa";
-            btnUpdate.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(783, 681);
-            Controls.Add(btnUpdate);
+            ClientSize = new Size(850, 681);
             Controls.Add(btnSave);
             Controls.Add(btnClose);
             Controls.Add(dtgDatPhong);
@@ -394,10 +384,8 @@
         private Label label7;
         private Label label6;
         private TextBox txtCost;
-        private TextBox txtCheckOut;
         private TextBox txtRoomClass;
         private TextBox txtRoomName;
-        private TextBox txtCheckIn;
         private GroupBox groupBox2;
         private Label label12;
         private Label label11;
@@ -412,6 +400,7 @@
         private DataGridView dtgDatPhong;
         private Button btnClose;
         private Button btnSave;
-        private Button btnUpdate;
+        private DateTimePicker dtpCheckOut;
+        private DateTimePicker dtpCheckIn;
     }
 }

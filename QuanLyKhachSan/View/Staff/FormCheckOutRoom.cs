@@ -66,10 +66,6 @@ namespace QuanLyKhachSan.View.Staff
                             dtgRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID, bill.IdBill);
                             dtgRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
                         }
-
-
-
-
                     }
                 }
                 catch
