@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             groupBox1 = new GroupBox();
             txtCost = new TextBox();
@@ -41,8 +42,10 @@
             btnDelete = new Button();
             btnClose = new Button();
             dtgSer = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgSer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -172,6 +175,10 @@
             dtgSer.TabIndex = 6;
             dtgSer.CellClick += dtgSer_CellClick;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Service
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -190,6 +197,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgSer).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -208,5 +216,6 @@
         private Button btnDelete;
         private Button btnClose;
         private DataGridView dtgSer;
+        private ErrorProvider errorProvider1;
     }
 }

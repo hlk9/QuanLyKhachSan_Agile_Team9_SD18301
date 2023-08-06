@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyKhachSan.Modal;
+using System.Text.RegularExpressions;
 
 namespace QuanLyKhachSan
 {
@@ -23,6 +24,46 @@ namespace QuanLyKhachSan
             var rawSer = File.ReadAllText("ServiceData.json");
             lstSer = JsonSerializer.Deserialize<List<Services>>(rawSer);
             loadData();
+        }
+
+        private bool checkInput()
+        {
+            int error = 0;
+            var checkBox = groupBox1.Controls.OfType<TextBox>();
+
+            foreach(var x in checkBox)
+            {
+                if("txtID, txtCost, txtName".Contains(x.Name) && string.IsNullOrWhiteSpace(x.Text))
+                {
+                    errorProvider1.SetError(x, "Không được để trống!!");
+                    error++;
+                } 
+                else
+                {
+                    errorProvider1.SetError(x, "");
+                }
+
+                if (!Regex.IsMatch(txtCost.Text, @"^[0-9]+$"))
+                {
+                    errorProvider1.SetError(txtCost, "Chỉ được nhập số dương");
+                    error++;
+                }
+
+                if (!Regex.IsMatch(txtName.Text, @"[a-zA-Z]+$"))
+                {
+                    errorProvider1.SetError(txtName, "Chỉ được nhập chữ");
+                    error++;
+                }
+            }
+
+            if (error == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void loadData()
@@ -52,6 +93,7 @@ namespace QuanLyKhachSan
             }
             else
             {
+                txtID.Enabled = false;
                 _idWhenClick = dtgSer.Rows[rowIndex].Cells[1].Value.ToString();
                 var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
 
@@ -63,49 +105,79 @@ namespace QuanLyKhachSan
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Services ser = new Services();
+            if (checkInput())
+            {
+                if (txtID.Text == lstSer.Select(x => x.Id).FirstOrDefault())
+                {
+                    MessageBox.Show("Đã có mã này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            ser.Id = txtID.Text;
-            ser.Name = txtName.Text;
-            ser.Cost = txtCost.Text;
+                Services ser = new Services();
 
-            lstSer.Add(ser);
+                ser.Id = txtID.Text;
+                ser.Name = txtName.Text;
+                ser.Cost = txtCost.Text;
 
-            var rawSer = JsonSerializer.Serialize(lstSer);
-            File.WriteAllText("ServiceData.json", rawSer);
+                lstSer.Add(ser);
 
-            MessageBox.Show("Thêm thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            loadData();
+                var rawSer = JsonSerializer.Serialize(lstSer);
+                File.WriteAllText("ServiceData.json", rawSer);
+
+                MessageBox.Show("Thêm thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadData();
+            }
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
+            if(checkInput())
+            {
+                var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
 
-            obj.Id = txtID.Text;
-            obj.Name = txtName.Text;
-            obj.Cost = txtCost.Text;
+                obj.Id = txtID.Text;
+                obj.Name = txtName.Text;
+                obj.Cost = txtCost.Text;
 
-            var rawSer = JsonSerializer.Serialize(lstSer);
-            File.WriteAllText("ServiceData.json", rawSer);
+                var rawSer = JsonSerializer.Serialize(lstSer);
+                File.WriteAllText("ServiceData.json", rawSer);
 
-            MessageBox.Show("Sửa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            loadData();
+                loadData();
+
+                txtID.Enabled = true;
+
+                txtID.Text = "";
+                txtName.Text = "";
+                txtCost.Text = "";
+            }
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
+            if(checkInput())
+            {
+                var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
 
-            lstSer.Remove(obj);
+                lstSer.Remove(obj);
 
-            var rawSer = JsonSerializer.Serialize(lstSer);
-            File.WriteAllText("ServiceData.json", rawSer);
+                var rawSer = JsonSerializer.Serialize(lstSer);
+                File.WriteAllText("ServiceData.json", rawSer);
 
-            MessageBox.Show("Xóa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            loadData();
+                loadData();
+
+                txtID.Enabled = true;
+
+                txtID.Text = "";
+                txtName.Text = "";
+                txtCost.Text = "";
+            }
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
