@@ -138,9 +138,10 @@ namespace QuanLyKhachSan
             loadData();
         }
 
-        private void lblHienThi_Click(object sender, EventArgs e)
-        {
-
-        }
+        //private bool checkInput()
+        //{
+        //    int error = 0;
+        //    var checkBox =
+        //}
     }
 }
