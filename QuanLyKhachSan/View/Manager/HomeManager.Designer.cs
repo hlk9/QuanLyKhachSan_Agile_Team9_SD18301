@@ -96,6 +96,7 @@
             btnReport.TabIndex = 3;
             btnReport.Text = "Thống kê";
             btnReport.UseVisualStyleBackColor = true;
+            btnReport.Click += btnReport_Click;
             // 
             // btnRoomManager
             // 
@@ -132,7 +133,7 @@
             button1.Name = "button1";
             button1.Size = new Size(132, 43);
             button1.TabIndex = 7;
-            button1.Text = "Danh sách khách hàng đang thue";
+            button1.Text = "Danh sách khách hàng đang thuê";
             button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1

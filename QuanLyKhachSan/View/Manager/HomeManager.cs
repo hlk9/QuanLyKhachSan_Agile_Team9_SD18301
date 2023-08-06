@@ -90,5 +90,11 @@ namespace QuanLyKhachSan.View.Manager
             roomManagement.ShowDialog();
 
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Report report = new Report();
+            report.ShowDialog();
+        }
     }
 }
