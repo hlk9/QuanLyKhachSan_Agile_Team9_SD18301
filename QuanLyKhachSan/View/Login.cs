@@ -1,4 +1,5 @@
 ﻿using QuanLyKhachSan.Modal;
+using QuanLyKhachSan.View.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,7 +48,10 @@ namespace QuanLyKhachSan
                         }
                         else//for manager or someone else
                         {
-
+                            HomeManager mng = new HomeManager();
+                            mng.Show();
+                            mng.FormClosed += StaffHome_FormClosed;
+                            this.Hide();
                         }    
                     }
                     else
