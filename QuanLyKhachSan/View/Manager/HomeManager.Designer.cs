@@ -126,6 +126,7 @@
             btnHistory.TabIndex = 6;
             btnHistory.Text = "Lịch sử đặt phòng";
             btnHistory.UseVisualStyleBackColor = true;
+            btnHistory.Click += btnHistory_Click;
             // 
             // button1
             // 

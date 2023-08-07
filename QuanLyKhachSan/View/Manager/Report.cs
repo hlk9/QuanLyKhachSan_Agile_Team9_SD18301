@@ -45,6 +45,9 @@ namespace QuanLyKhachSan.View.Manager
             dtgData.Columns[5].Name = "Tên Khách hàng";
             dtgData.Columns[6].Name = "Tổng Bill";
             dtgData.Columns[7].Name = "Số ĐT";
+            dtgData.Columns[0].Visible = false;
+            dtgData.Columns[1].Visible = false;
+            dtgData.Columns[2].Visible = false;
             dtgData.Rows.Clear();
         }
         private void dateBegin_ValueChanged(object sender, EventArgs e)

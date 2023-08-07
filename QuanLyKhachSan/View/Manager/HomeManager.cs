@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
+using QuanLyKhachSan.View.Both;
 
 namespace QuanLyKhachSan.View.Manager
 {
@@ -95,6 +96,12 @@ namespace QuanLyKhachSan.View.Manager
         {
             Report report = new Report();
             report.ShowDialog();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            Booking_History his = new Booking_History();
+            his.ShowDialog();
         }
     }
 }

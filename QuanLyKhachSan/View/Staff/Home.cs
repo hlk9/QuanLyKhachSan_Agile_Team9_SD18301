@@ -101,7 +101,13 @@ namespace QuanLyKhachSan.View.Staff
         private void btnDatphong_Click(object sender, EventArgs e)
         {
             Booking booking = new Booking();
-            booking.Show();           
+            booking.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }
