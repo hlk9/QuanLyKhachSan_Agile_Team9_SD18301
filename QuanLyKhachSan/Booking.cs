@@ -55,7 +55,7 @@ namespace QuanLyKhachSan
                 {
                     if (row.Cells[4].Value == "Đã đặt")
                     {
-                        //row.Visible = false;
+                        row.Visible = false;
                     }
                 }
             }
@@ -63,19 +63,16 @@ namespace QuanLyKhachSan
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void dtgDatPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
 
-            if (rowIndex < 0 || dtgDatPhong.Rows[rowIndex].Cells[4].Value == "Đã đặt")
+            if (rowIndex < 0)
             {
                 txtRoomID.Text = "";
-                txtRoomName.Text = "";
-                txtRoomClass.Text = "";
-                txtCost.Text = "";
                 return;
             }
             else
@@ -83,61 +80,73 @@ namespace QuanLyKhachSan
                 _roomID = dtgDatPhong.Rows[rowIndex].Cells[1].Value.ToString();
 
                 var obj = listRoom.FirstOrDefault(x => x.RoomID == _roomID);
-                txtRoomID.Text = obj.RoomID.ToString();
-                txtRoomName.Text = obj.RoomName.ToString();
-                txtRoomClass.Text = obj.RoomClass.ToString();
-                txtCost.Text = obj.Cost.ToString();
+                lblHienThi.Text = $"Mã Phòng: {obj.RoomID} -- Tên Phòng: {obj.RoomName} -- Loại Phòng: {obj.RoomClass} -- Giá: {obj.Cost}";
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             Customer cus = new Customer();
-            Bill bill = new Bill();
-          
-            bill.IdBill = Guid.NewGuid().ToString();
-            bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
-            bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
-            bill.TotalCost = double.Parse(txtCost.Text);
-            bill.RoomID = txtRoomID.Text;
-            cus.IdCustomer = Guid.NewGuid().ToString();
-            bill.IdCustomer = cus.IdCustomer.ToString();
 
+            string[] arrRoom = txtRoomID.Text.Split(',');
+            string[] arrService = txtDv.Text.Split(",");
+            cus.IdCustomer = Guid.NewGuid().ToString();
             cus.Name = txtName.Text;
             cus.Email = txtEmail.Text;
             cus.PhoneNumer = txtPhone.Text;
-            cus.CMND = txtCMND.Text;           
+            cus.CMND = txtCMND.Text;
 
-            try
+            for (int i = 0; i < arrRoom.Length; i++)
             {
-                listBill.Add(bill);
-                listCus.Add(cus);
-
-              for (int i=0; i<listRoom.Count;i++)
+                var x = listRoom.FirstOrDefault(a => a.RoomName == arrRoom[i]);
+                if (x != null)
                 {
-                    if (listRoom[i].RoomID == txtRoomID.Text)
+                    Bill bill = new Bill();
+                    bill.IdBill = Guid.NewGuid().ToString();
+                    bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
+                    bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
+                    bill.TotalCost = double.Parse(x.Cost.ToString());
+                    bill.RoomID = arrRoom[i];
+                    if (arrService.Length > 0)
                     {
-                        listRoom[i].Status = false;
-                        break;
-                    }    
-                }    
+                        bill.ServiceID = arrService;
+                    }
+                    bill.IdCustomer = cus.IdCustomer.ToString();
+                    try
+                    {
+                        listBill.Add(bill);
+                        listCus.Add(cus);
 
-                string rawBill = JsonSerializer.Serialize(listBill);
-                File.WriteAllText("BillData.json", rawBill);
-
-                string rawCus = JsonSerializer.Serialize(listCus);
-                File.WriteAllText("CustomerData.json", rawCus);
-                // à đây, chỗ này ông đã lưu áci file roomdata đâu :v
-
-                string rawRoom = JsonSerializer.Serialize(listRoom);
-                File.WriteAllText("RoomData.json", rawRoom);
-
-                loadData();
-
-                MessageBox.Show("Đặt phòng thành công!!");
+                        for (int y = 0; y < listRoom.Count; y++)
+                        {
+                            if (listRoom[y].RoomName == arrRoom[i])
+                            {
+                                listRoom[y].Status = false;
+                                continue;
+                            }
+                        }
+                        MessageBox.Show("Đặt phòng thành công!!");
+                    }
+                    catch { }
+                }
             }
-            catch { }
 
+            string rawBill = JsonSerializer.Serialize(listBill);
+            File.WriteAllText("BillData.json", rawBill);
+
+            string rawCus = JsonSerializer.Serialize(listCus);
+            File.WriteAllText("CustomerData.json", rawCus);
+
+            string rawRoom = JsonSerializer.Serialize(listRoom);
+            File.WriteAllText("RoomData.json", rawRoom);
+
+            loadData();
         }
+
+        //private bool checkInput()
+        //{
+        //    int error = 0;
+        //    var checkBox =
+        //}
     }
 }

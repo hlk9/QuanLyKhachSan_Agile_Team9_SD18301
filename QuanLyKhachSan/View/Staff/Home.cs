@@ -89,7 +89,7 @@ namespace QuanLyKhachSan.View.Staff
         {
 
             FormCheckOutRoom a = new FormCheckOutRoom();
-            a.Show();
+            a.ShowDialog();
 
         }
 
@@ -107,7 +107,7 @@ namespace QuanLyKhachSan.View.Staff
         private void button7_Click(object sender, EventArgs e)
         {
             this.Close();
-
+                    
         }
     }
 }
