@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace QuanLyKhachSan.View.Staff
         List<Room> lstRoom;
         List<Bill> lstBill;
         List<Customer> lstCustomer;
+        List<Services> lstService;
         string _idBill;
         string _idRoom;
         string _idCustomer;
@@ -25,6 +27,7 @@ namespace QuanLyKhachSan.View.Staff
             lstRoom = new List<Room>();
             lstBill = new List<Bill>();
             lstCustomer = new List<Customer>();
+            lstService = new List<Services>();
             InitializeComponent();
             string raw = File.ReadAllText("RoomData.json");
             lstRoom = JsonSerializer.Deserialize<List<Room>>(raw);
@@ -32,6 +35,8 @@ namespace QuanLyKhachSan.View.Staff
             lstBill = JsonSerializer.Deserialize<List<Bill>>(rawBill);
             string rawCus = File.ReadAllText("CustomerData.json");
             lstCustomer = JsonSerializer.Deserialize<List<Customer>>(rawCus);
+            string rawSer = File.ReadAllText("ServiceData.json");
+            lstService = JsonSerializer.Deserialize<List<Services>>(rawSer);
             LoadData();
         }
         public void LoadData()
@@ -92,7 +97,8 @@ namespace QuanLyKhachSan.View.Staff
                 lblRoom.Text = "Phòng: " + dtgRoom.Rows[e.RowIndex].Cells[1].Value.ToString();
                 var bill = lstBill.FirstOrDefault(x => x.IdBill == _idBill && x.IsPaid == false);
                 if (bill != null)
-                {
+                {                   
+
                     txtFrom.Text = DateTime.Parse(bill.BookingDate.ToString()).ToString("dd-MM-yyyy");
                     txtTo.Text = DateTime.Parse(bill.CheckOutDate.ToString()).ToString("dd-MM-yyyy");
                     var usr = lstCustomer.FirstOrDefault(x => x.IdCustomer == bill.IdCustomer);

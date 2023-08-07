@@ -87,6 +87,7 @@
             btnServices.TabIndex = 2;
             btnServices.Text = "Quản lý Dịch Vụ";
             btnServices.UseVisualStyleBackColor = true;
+            btnServices.Click += btnServices_Click;
             // 
             // btnReport
             // 
