@@ -89,6 +89,7 @@ namespace QuanLyKhachSan
             Customer cus = new Customer();
 
             string[] arrRoom = txtRoomID.Text.Split(',');
+            string[] arrService = txtDv.Text.Split(",");
             cus.IdCustomer = Guid.NewGuid().ToString();
             cus.Name = txtName.Text;
             cus.Email = txtEmail.Text;
@@ -106,6 +107,10 @@ namespace QuanLyKhachSan
                     bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
                     bill.TotalCost = double.Parse(x.Cost.ToString());
                     bill.RoomID = arrRoom[i];
+                    if (arrService.Length > 0)
+                    {
+                        bill.ServiceID = arrService;
+                    }
                     bill.IdCustomer = cus.IdCustomer.ToString();
                     try
                     {

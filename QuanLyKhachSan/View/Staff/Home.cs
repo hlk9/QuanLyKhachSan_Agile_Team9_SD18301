@@ -89,7 +89,7 @@ namespace QuanLyKhachSan.View.Staff
         {
 
             FormCheckOutRoom a = new FormCheckOutRoom();
-            a.Show();
+            a.ShowDialog();
 
         }
 
@@ -101,7 +101,7 @@ namespace QuanLyKhachSan.View.Staff
         private void btnDatphong_Click(object sender, EventArgs e)
         {
             Booking booking = new Booking();
-            booking.Show();           
+            booking.ShowDialog();           
         }
     }
 }
