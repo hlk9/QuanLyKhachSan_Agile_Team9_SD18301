@@ -34,30 +34,37 @@ namespace QuanLyKhachSan.View.Manager
         }
         public void LoadData()
         {
-            int stt = 1;
-
-            dtgData.ColumnCount = 6;
-
-            dtgData.Columns[0].Name = "STT";
-            dtgData.Columns[1].Name = "Tên phòng";
-            dtgData.Columns[2].Name = "Tên khách hàng";
-            dtgData.Columns[3].Name = "Thành tiền";
-            dtgData.Columns[4].Name = "ID KH";
-            dtgData.Columns[5].Name = "ID Room";
-            dtgData.Columns[4].Visible = false;
-            dtgData.Columns[5].Visible = false;
-            dtgData.Rows.Clear();
-            for (int i = 0; i < lstBill.Count; i++)
+           try
             {
+                int stt = 1;
 
+                dtgData.ColumnCount = 6;
 
-                if (lstBill[i].IsPaid == false)
+                dtgData.Columns[0].Name = "STT";
+                dtgData.Columns[1].Name = "Tên phòng";
+                dtgData.Columns[2].Name = "Tên khách hàng";
+                dtgData.Columns[3].Name = "Thành tiền";
+                dtgData.Columns[4].Name = "ID KH";
+                dtgData.Columns[5].Name = "ID Room";
+                dtgData.Columns[4].Visible = false;
+                dtgData.Columns[5].Visible = false;
+                dtgData.Rows.Clear();
+                for (int i = 0; i < lstBill.Count; i++)
                 {
-                    var room = lstRoom.FirstOrDefault(x => x.RoomID == lstBill[i].RoomID);
-                    var customer = lstCus.FirstOrDefault(x => x.IdCustomer == lstBill[i].IdCustomer);
-                    dtgData.Rows.Add(stt++, room.RoomName, customer.Name, lstBill[i].TotalPay(), customer.IdCustomer, room.RoomID);
-                }
 
+
+                    if (lstBill[i].IsPaid == false)
+                    {
+                        var room = lstRoom.FirstOrDefault(x => x.RoomID == lstBill[i].RoomID);
+                        var customer = lstCus.FirstOrDefault(x => x.IdCustomer == lstBill[i].IdCustomer);
+                        dtgData.Rows.Add(stt++, room.RoomName, customer.Name, lstBill[i].TotalPay(), customer.IdCustomer, room.RoomID);
+                    }
+
+
+                }
+            }
+            catch
+            {
 
             }
         }
