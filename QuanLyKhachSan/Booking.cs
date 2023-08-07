@@ -106,7 +106,7 @@ namespace QuanLyKhachSan
                     bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
                     bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
                     bill.TotalCost = double.Parse(x.Cost.ToString());
-                    bill.RoomID = arrRoom[i];
+                    bill.RoomID =x.RoomID;
                     if (arrService.Length > 0)
                     {
                         bill.ServiceID = arrService;
@@ -119,13 +119,14 @@ namespace QuanLyKhachSan
 
                         for (int y = 0; y < listRoom.Count; y++)
                         {
-                            if (listRoom[y].RoomName == arrRoom[i])
+                            if (listRoom[y].RoomID == bill.RoomID)
                             {
                                 listRoom[y].Status = false;
+                                MessageBox.Show("Đặt phòng " + listRoom[y].RoomName +" thành công!!");
                                 continue;
                             }
                         }
-                        MessageBox.Show("Đặt phòng thành công!!");
+                       
                     }
                     catch { }
                 }

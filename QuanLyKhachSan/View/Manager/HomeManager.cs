@@ -103,5 +103,11 @@ namespace QuanLyKhachSan.View.Manager
             Booking_History his = new Booking_History();
             his.ShowDialog();
         }
+
+        private void btnServices_Click(object sender, EventArgs e)
+        {
+            Service serManagement = new Service();
+            serManagement.ShowDialog();
+        }
     }
 }
