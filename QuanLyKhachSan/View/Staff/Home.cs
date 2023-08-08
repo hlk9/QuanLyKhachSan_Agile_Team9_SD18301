@@ -115,5 +115,6 @@ namespace QuanLyKhachSan.View.Staff
             ViewRoomSatus viewRoomSatus = new ViewRoomSatus();
             viewRoomSatus.ShowDialog();
         }
+
     }
 }
