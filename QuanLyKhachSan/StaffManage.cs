@@ -109,7 +109,7 @@ namespace QuanLyKhachSan
         {
             int rowIndex = e.RowIndex;
 
-            if (rowIndex < 0)
+            if (rowIndex < 0 || rowIndex == lstStaff.Count)
             {
                 return;
             }

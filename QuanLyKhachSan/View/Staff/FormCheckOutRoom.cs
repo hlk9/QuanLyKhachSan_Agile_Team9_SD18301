@@ -97,7 +97,7 @@ namespace QuanLyKhachSan.View.Staff
                 lblRoom.Text = "Phòng: " + dtgRoom.Rows[e.RowIndex].Cells[1].Value.ToString();
                 var bill = lstBill.FirstOrDefault(x => x.IdBill == _idBill && x.IsPaid == false);
                 if (bill != null)
-                {                   
+                {
 
                     txtFrom.Text = DateTime.Parse(bill.BookingDate.ToString()).ToString("dd-MM-yyyy");
                     txtTo.Text = DateTime.Parse(bill.CheckOutDate.ToString()).ToString("dd-MM-yyyy");

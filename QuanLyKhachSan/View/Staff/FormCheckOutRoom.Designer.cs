@@ -50,110 +50,123 @@
             dtgRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgRoom.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dtgRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgRoom.Location = new Point(12, 237);
+            dtgRoom.Location = new Point(14, 316);
+            dtgRoom.Margin = new Padding(3, 4, 3, 4);
             dtgRoom.Name = "dtgRoom";
             dtgRoom.ReadOnly = true;
+            dtgRoom.RowHeadersWidth = 51;
             dtgRoom.RowTemplate.Height = 25;
             dtgRoom.ShowEditingIcon = false;
-            dtgRoom.Size = new Size(776, 201);
+            dtgRoom.Size = new Size(887, 268);
             dtgRoom.TabIndex = 0;
             dtgRoom.CellClick += dtgRoom_CellClick;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(350, 9);
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 12);
             label1.Name = "label1";
-            label1.Size = new Size(113, 30);
+            label1.Size = new Size(890, 61);
             label1.TabIndex = 1;
             label1.Text = "Trả Phòng";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(12, 80);
+            lblName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lblName.Location = new Point(14, 122);
             lblName.Name = "lblName";
-            lblName.Size = new Size(44, 15);
+            lblName.Size = new Size(63, 23);
             lblName.TabIndex = 2;
             lblName.Text = "Họ Tên";
+            lblName.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblRoom
             // 
             lblRoom.AutoSize = true;
-            lblRoom.Location = new Point(12, 124);
+            lblRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lblRoom.Location = new Point(12, 211);
             lblRoom.Name = "lblRoom";
-            lblRoom.Size = new Size(42, 15);
+            lblRoom.Size = new Size(60, 23);
             lblRoom.TabIndex = 3;
             lblRoom.Text = "Phòng";
+            lblRoom.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblTotalCost
             // 
-            lblTotalCost.AutoSize = true;
-            lblTotalCost.Location = new Point(625, 124);
+            lblTotalCost.BorderStyle = BorderStyle.FixedSingle;
+            lblTotalCost.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTotalCost.Location = new Point(714, 149);
             lblTotalCost.Name = "lblTotalCost";
-            lblTotalCost.Size = new Size(63, 15);
+            lblTotalCost.Size = new Size(186, 89);
             lblTotalCost.TabIndex = 4;
-            lblTotalCost.Text = "Tổng tiền: ";
+            lblTotalCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtFrom
             // 
-            txtFrom.Location = new Point(307, 104);
+            txtFrom.Location = new Point(370, 122);
+            txtFrom.Margin = new Padding(3, 4, 3, 4);
             txtFrom.Name = "txtFrom";
             txtFrom.ReadOnly = true;
-            txtFrom.Size = new Size(181, 23);
+            txtFrom.Size = new Size(206, 27);
             txtFrom.TabIndex = 5;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(375, 80);
+            label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(279, 122);
             label5.Name = "label5";
-            label5.Size = new Size(56, 15);
+            label5.Size = new Size(85, 27);
             label5.TabIndex = 6;
             label5.Text = "Thời gian";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(390, 130);
+            label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(279, 211);
             label6.Name = "label6";
-            label6.Size = new Size(23, 15);
+            label6.Size = new Size(85, 27);
             label6.TabIndex = 7;
             label6.Text = "Tới";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtTo
             // 
-            txtTo.Location = new Point(307, 148);
+            txtTo.Location = new Point(370, 211);
+            txtTo.Margin = new Padding(3, 4, 3, 4);
             txtTo.Name = "txtTo";
             txtTo.ReadOnly = true;
-            txtTo.Size = new Size(181, 23);
+            txtTo.Size = new Size(206, 27);
             txtTo.TabIndex = 8;
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(625, 80);
+            label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(714, 122);
             label2.Name = "label2";
-            label2.Size = new Size(63, 15);
+            label2.Size = new Size(186, 27);
             label2.TabIndex = 9;
-            label2.Text = "Tổng tiền: ";
+            label2.Text = "Tổng tiền";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblCurrentRoom
             // 
-            lblCurrentRoom.AutoSize = true;
-            lblCurrentRoom.Location = new Point(307, 219);
+            lblCurrentRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCurrentRoom.Location = new Point(14, 265);
             lblCurrentRoom.Name = "lblCurrentRoom";
-            lblCurrentRoom.Size = new Size(42, 15);
+            lblCurrentRoom.Size = new Size(350, 47);
             lblCurrentRoom.TabIndex = 10;
-            lblCurrentRoom.Text = "Phòng";
+            lblCurrentRoom.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnConfirm
             // 
             btnConfirm.BackColor = Color.LightGreen;
-            btnConfirm.Location = new Point(625, 199);
+            btnConfirm.Location = new Point(714, 265);
+            btnConfirm.Margin = new Padding(3, 4, 3, 4);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(163, 35);
+            btnConfirm.Size = new Size(186, 47);
             btnConfirm.TabIndex = 11;
             btnConfirm.Text = "Xác nhận đã thanh toán";
             btnConfirm.UseVisualStyleBackColor = false;
@@ -161,9 +174,9 @@
             // 
             // FormCheckOutRoom
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(btnConfirm);
             Controls.Add(lblCurrentRoom);
             Controls.Add(label2);
@@ -176,6 +189,7 @@
             Controls.Add(lblName);
             Controls.Add(label1);
             Controls.Add(dtgRoom);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormCheckOutRoom";
             Text = "FormCheckOutRoom";
             ((System.ComponentModel.ISupportInitialize)dtgRoom).EndInit();

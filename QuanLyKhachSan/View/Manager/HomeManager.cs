@@ -109,5 +109,11 @@ namespace QuanLyKhachSan.View.Manager
             Service serManagement = new Service();
             serManagement.ShowDialog();
         }
+
+        private void btnStaffManager_Click(object sender, EventArgs e)
+        {
+            StaffManage staffManage = new StaffManage();
+            staffManage.ShowDialog();         
+        }
     }
 }

@@ -107,7 +107,14 @@ namespace QuanLyKhachSan.View.Staff
         private void button7_Click(object sender, EventArgs e)
         {
             this.Close();
-                    
+
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ViewRoomSatus viewRoomSatus = new ViewRoomSatus();
+            viewRoomSatus.ShowDialog();
+        }
+
     }
 }
