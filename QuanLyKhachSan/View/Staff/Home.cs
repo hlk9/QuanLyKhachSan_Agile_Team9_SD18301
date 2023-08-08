@@ -69,7 +69,8 @@ namespace QuanLyKhachSan.View.Staff
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Cancel_Room a = new Cancel_Room();
+            a.ShowDialog();
         }
 
         private void dtgListRoom_CellClick(object sender, DataGridViewCellEventArgs e)

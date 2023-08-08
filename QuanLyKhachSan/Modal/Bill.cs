@@ -45,18 +45,18 @@ namespace QuanLyKhachSan.Modal
         }
         public double TotalPay()
         {
+            List<Services> lstService = new List<Services>();
+            string rawSer = File.ReadAllText("ServiceData.json");
+            lstService = JsonSerializer.Deserialize<List<Services>>(rawSer);
+            double days = (checkOutDate - bookingDate).TotalDays;
+            if (days <= 0) days = 1;
+
+            double cost = totalCost * days;
+
 
             try
             {
-                List<Services> lstService = new List<Services>();
-                string rawSer = File.ReadAllText("ServiceData.json");
-                lstService = JsonSerializer.Deserialize<List<Services>>(rawSer);
-                double days = (checkOutDate - bookingDate).TotalDays;
-                if (days <= 0) days = 1;
-
-                double cost = totalCost * days;
-
-
+               
                 if (this.ServiceID.Length > 0)
                 {
                     foreach (string id in this.ServiceID)
@@ -73,7 +73,7 @@ namespace QuanLyKhachSan.Modal
             }
             catch
             {
-                return 0;
+                return cost + (cost * 0.1);
             }
 
            
