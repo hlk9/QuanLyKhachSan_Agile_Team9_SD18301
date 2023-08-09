@@ -117,5 +117,10 @@ namespace QuanLyKhachSan.View.Staff
             viewRoomSatus.ShowDialog();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OrderService orderService = new OrderService();
+            orderService.ShowDialog();
+        }
     }
 }
