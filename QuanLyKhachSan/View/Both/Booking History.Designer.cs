@@ -37,9 +37,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(288, 9);
+            label1.Location = new Point(329, 12);
             label1.Name = "label1";
-            label1.Size = new Size(191, 30);
+            label1.Size = new Size(245, 37);
             label1.TabIndex = 0;
             label1.Text = "Lịch sử đặt phòng";
             // 
@@ -48,20 +48,24 @@
             dtgData.AllowUserToAddRows = false;
             dtgData.AllowUserToDeleteRows = false;
             dtgData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgData.Location = new Point(12, 42);
+            dtgData.Location = new Point(14, 56);
+            dtgData.Margin = new Padding(3, 4, 3, 4);
             dtgData.Name = "dtgData";
+            dtgData.RowHeadersWidth = 51;
             dtgData.RowTemplate.Height = 25;
-            dtgData.Size = new Size(776, 396);
+            dtgData.Size = new Size(887, 528);
             dtgData.TabIndex = 1;
             // 
             // Booking_History
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(dtgData);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Booking_History";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Booking_History";
             ((System.ComponentModel.ISupportInitialize)dtgData).EndInit();
             ResumeLayout(false);

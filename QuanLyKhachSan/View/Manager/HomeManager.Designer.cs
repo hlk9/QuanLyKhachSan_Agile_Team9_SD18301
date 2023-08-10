@@ -306,6 +306,7 @@
             Controls.Add(dtgData);
             Margin = new Padding(3, 4, 3, 4);
             Name = "HomeManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HomeManager";
             ((System.ComponentModel.ISupportInitialize)dtgData).EndInit();
             groupBox1.ResumeLayout(false);

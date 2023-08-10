@@ -106,12 +106,12 @@ namespace QuanLyKhachSan.View.Staff
 
                 if (re == DialogResult.Yes)
                 {
-                   for(int i=0;i<lstRoom.Count;i++)
+                    for (int i = 0; i < lstRoom.Count; i++)
                     {
                         if (lstRoom[i].RoomID == idRoom)
                         {
                             lstRoom[i].Status = true;
-                            for(int j =0;j<lstBill.Count;j++)
+                            for (int j = 0; j < lstBill.Count; j++)
                             {
                                 if (lstBill[j].RoomID == idRoom)
                                 {
@@ -121,13 +121,13 @@ namespace QuanLyKhachSan.View.Staff
                                     MessageBox.Show("Xoá thành công");
                                     LoadData();
                                     break;
-                                }    
-                                
-                            }    
+                                }
+
+                            }
                             break;
-                        }    
-                    }    
-                   
+                        }
+                    }
+
                 }
             }
 

@@ -41,50 +41,53 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitle.Location = new Point(57, 9);
+            lblTitle.Location = new Point(65, 12);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(417, 40);
+            lblTitle.Size = new Size(526, 50);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Phần mềm quản lý khách sạn";
             // 
             // txtUserName
             // 
-            txtUserName.Location = new Point(175, 90);
+            txtUserName.Location = new Point(200, 120);
+            txtUserName.Margin = new Padding(3, 4, 3, 4);
             txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(257, 23);
+            txtUserName.Size = new Size(293, 27);
             txtUserName.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(63, 93);
+            label1.Location = new Point(72, 124);
             label1.Name = "label1";
-            label1.Size = new Size(90, 15);
+            label1.Size = new Size(113, 20);
             label1.TabIndex = 2;
             label1.Text = "Tên người dùng";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(63, 140);
+            label2.Location = new Point(72, 187);
             label2.Name = "label2";
-            label2.Size = new Size(57, 15);
+            label2.Size = new Size(70, 20);
             label2.TabIndex = 4;
             label2.Text = "Mật khẩu";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(175, 137);
+            txtPassword.Location = new Point(200, 183);
+            txtPassword.Margin = new Padding(3, 4, 3, 4);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(257, 23);
+            txtPassword.Size = new Size(293, 27);
             txtPassword.TabIndex = 3;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(254, 193);
+            btnLogin.Location = new Point(290, 257);
+            btnLogin.Margin = new Padding(3, 4, 3, 4);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(75, 23);
+            btnLogin.Size = new Size(86, 31);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = true;
@@ -92,9 +95,10 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(357, 193);
+            btnCancel.Location = new Point(408, 257);
+            btnCancel.Margin = new Padding(3, 4, 3, 4);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(86, 31);
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Thoát";
             btnCancel.UseVisualStyleBackColor = true;
@@ -102,9 +106,9 @@
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(552, 252);
+            ClientSize = new Size(631, 336);
             Controls.Add(btnCancel);
             Controls.Add(btnLogin);
             Controls.Add(label2);
@@ -112,7 +116,9 @@
             Controls.Add(label1);
             Controls.Add(txtUserName);
             Controls.Add(lblTitle);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login to System";
             ResumeLayout(false);
             PerformLayout();

@@ -191,6 +191,7 @@
             Controls.Add(dtgRoom);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormCheckOutRoom";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCheckOutRoom";
             ((System.ComponentModel.ISupportInitialize)dtgRoom).EndInit();
             ResumeLayout(false);
