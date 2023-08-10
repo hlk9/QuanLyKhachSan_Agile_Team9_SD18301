@@ -289,6 +289,7 @@
             Controls.Add(label1);
             Controls.Add(dtgData);
             Name = "HomeManager";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HomeManager";
             ((System.ComponentModel.ISupportInitialize)dtgData).EndInit();
             groupBox1.ResumeLayout(false);

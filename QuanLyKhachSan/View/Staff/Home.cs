@@ -135,5 +135,10 @@ namespace QuanLyKhachSan.View.Staff
         {
             LoadData(txtSearch.Text);
         }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OrderService orderService = new OrderService();
+            orderService.ShowDialog();
+        }
     }
 }

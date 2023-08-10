@@ -1,3 +1,5 @@
+using QuanLyKhachSan.View.Staff;
+
 namespace QuanLyKhachSan
 {
     internal static class Program

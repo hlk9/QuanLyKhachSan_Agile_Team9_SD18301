@@ -149,6 +149,7 @@
             button4.TabIndex = 6;
             button4.Text = "Dịch vụ yêu cầu";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -217,6 +218,7 @@
             Controls.Add(lblTitle);
             Controls.Add(dtgListRoom);
             Name = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             ((System.ComponentModel.ISupportInitialize)dtgListRoom).EndInit();
             groupBox1.ResumeLayout(false);
