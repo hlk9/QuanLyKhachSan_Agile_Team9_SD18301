@@ -34,7 +34,7 @@ namespace QuanLyKhachSan.View.Manager
         }
         public void LoadData()
         {
-           try
+            try
             {
                 int stt = 1;
 
@@ -120,7 +120,13 @@ namespace QuanLyKhachSan.View.Manager
         private void btnStaffManager_Click(object sender, EventArgs e)
         {
             StaffManage staffManage = new StaffManage();
-            staffManage.ShowDialog();         
+            staffManage.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CurrentCustomer ab = new CurrentCustomer();
+            ab.ShowDialog();
         }
     }
 }
