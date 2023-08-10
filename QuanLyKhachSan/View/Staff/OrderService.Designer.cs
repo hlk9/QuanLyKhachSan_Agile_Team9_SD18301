@@ -57,10 +57,11 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(765, 303);
             dataGridView1.TabIndex = 1;
+            dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // label1
             // 
-            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(12, 71);
             label1.Name = "label1";
             label1.Size = new Size(765, 44);

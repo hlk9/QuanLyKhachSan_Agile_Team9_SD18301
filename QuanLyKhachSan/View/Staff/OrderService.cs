@@ -18,6 +18,7 @@ namespace QuanLyKhachSan.View.Staff
         private List<Services> _lstSer = new List<Services>();
         private List<Room> _lstRoom = new List<Room>();
 
+        string _idWhenSelect;
         public OrderService()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace QuanLyKhachSan.View.Staff
 
         private void loadDaTa()
         {
-            int stt = 1;
+            int stt = 0;
             dataGridView1.ColumnCount = 4;
             dataGridView1.Columns[0].Name = "STT";
             dataGridView1.Columns[1].Name = "Room ID";
@@ -50,21 +51,26 @@ namespace QuanLyKhachSan.View.Staff
                 {
                     string[] lstSerArr = x.ServiceID;
                     string a = "";
-                    for (int i = 0; i < lstSerArr.Length; i++)
+                    if (lstSerArr != null)
                     {
-                        var e = _lstSer.FirstOrDefault(f => f.Id == lstSerArr[i]);
-                        try
+                        
+                        for (int i = 0; i < lstSerArr.Length; i++)
                         {
-                            if (e != null)
+                            var e = _lstSer.FirstOrDefault(f => f.Id == lstSerArr[i]);
+                            try
                             {
-                                a += e.Name;
+                                if (e != null)
+                                {
+                                    a += e.Name;
+                                }
+                            }
+                            catch
+                            {
+                                a = "";
                             }
                         }
-                        catch
-                        {
-                            a = "";
-                        }
                     }
+                    
                     dataGridView1.Rows.Add(stt++, x.RoomID,
                                         _lstRoom.Where(y => y.RoomID == x.RoomID).Select(z => z.RoomName).FirstOrDefault(),
                                         a);
@@ -87,7 +93,51 @@ namespace QuanLyKhachSan.View.Staff
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(_idWhenSelect == "")
+            {
+                MessageBox.Show("Vui lòng chọn phòng muốn hủy!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn chắc chắn muốn hủy?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                if(result == DialogResult.Yes)
+                {
+                    for (int i = 0; i < _lstBill.Count; i++)
+                    {
+                        if (_lstBill[i].RoomID == _idWhenSelect && _lstBill[i].IsPaid == false)
+                        {
+                            _lstBill[i].ServiceID = null;
+
+                            File.WriteAllText("BillData.json", JsonSerializer.Serialize(_lstBill));
+                            MessageBox.Show("Hủy thành công!!");
+                            loadDaTa();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string roomID, roomName, serviceName;
+                int rowIndex = dataGridView1.CurrentRow.Index;
+                roomID = dataGridView1.Rows[rowIndex].Cells[1].Value.ToString();
+                roomName = dataGridView1.Rows[rowIndex].Cells[2].Value.ToString();
+                serviceName = dataGridView1.Rows[rowIndex].Cells[3].Value.ToString();
+                _idWhenSelect = roomID;
+
+                label1.Text = "Mã phòng: " + roomID + "--" + " Tên phòng: " + roomName + "--" + " Tên dịch vụ: " + serviceName;
+            }
+            catch
+            {
+                _idWhenSelect = "";
+                label1.Text = "";
+            }
+            
         }
     }
 }
