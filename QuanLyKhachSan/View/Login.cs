@@ -36,7 +36,7 @@ namespace QuanLyKhachSan
                 User usr = lstUser.FirstOrDefault(x => x.UserName == txtUserName.Text);
                 if (usr != null)
                 {
-                    if(txtPassword.Text == usr.Password)
+                    if (txtPassword.Text == usr.Password)
                     {
                         string a = usr.Role[0];
                         if (usr.Role[0].Contains("Staff"))
@@ -52,13 +52,13 @@ namespace QuanLyKhachSan
                             mng.Show();
                             mng.FormClosed += StaffHome_FormClosed;
                             this.Hide();
-                        }    
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
-                    }    
-                        
+                    }
+
                 }
             }
             catch

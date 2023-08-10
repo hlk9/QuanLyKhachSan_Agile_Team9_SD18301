@@ -88,6 +88,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "OrderService";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrderService";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

@@ -278,6 +278,7 @@
             Controls.Add(label1);
             Controls.Add(groupBox1);
             Name = "StaffManage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StaffManage";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

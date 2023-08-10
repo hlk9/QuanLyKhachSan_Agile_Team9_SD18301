@@ -92,7 +92,7 @@ namespace QuanLyKhachSan
 
             lstStaff.Remove(obj);
 
-            string rawst = JsonSerializer.Serialize( lstStaff);
+            string rawst = JsonSerializer.Serialize(lstStaff);
             File.WriteAllText("StaffData.json", rawst);
 
             MessageBox.Show("Xóa thành công!!!");

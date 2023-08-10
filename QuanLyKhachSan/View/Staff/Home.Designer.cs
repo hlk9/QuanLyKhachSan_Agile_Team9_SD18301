@@ -229,6 +229,7 @@
             Controls.Add(dtgListRoom);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             ((System.ComponentModel.ISupportInitialize)dtgListRoom).EndInit();
             groupBox1.ResumeLayout(false);

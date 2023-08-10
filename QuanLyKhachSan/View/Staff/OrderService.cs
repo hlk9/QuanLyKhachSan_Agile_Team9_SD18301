@@ -53,7 +53,7 @@ namespace QuanLyKhachSan.View.Staff
                     string a = "";
                     if (lstSerArr != null)
                     {
-                        
+
                         for (int i = 0; i < lstSerArr.Length; i++)
                         {
                             var e = _lstSer.FirstOrDefault(f => f.Id == lstSerArr[i]);
@@ -70,7 +70,7 @@ namespace QuanLyKhachSan.View.Staff
                             }
                         }
                     }
-                    
+
                     dataGridView1.Rows.Add(stt++, x.RoomID,
                                         _lstRoom.Where(y => y.RoomID == x.RoomID).Select(z => z.RoomName).FirstOrDefault(),
                                         a);
@@ -93,7 +93,7 @@ namespace QuanLyKhachSan.View.Staff
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(_idWhenSelect == "")
+            if (_idWhenSelect == "")
             {
                 MessageBox.Show("Vui lòng chọn phòng muốn hủy!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -101,7 +101,7 @@ namespace QuanLyKhachSan.View.Staff
             {
                 DialogResult result = MessageBox.Show("Bạn chắc chắn muốn hủy?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     for (int i = 0; i < _lstBill.Count; i++)
                     {
@@ -137,7 +137,7 @@ namespace QuanLyKhachSan.View.Staff
                 _idWhenSelect = "";
                 label1.Text = "";
             }
-            
+
         }
     }
 }

@@ -135,7 +135,7 @@ namespace QuanLyKhachSan.View.Manager
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {          
+        {
             try
             {
                 var a = lstRoom.Where(x => x.RoomID == txtID.Text).FirstOrDefault();
