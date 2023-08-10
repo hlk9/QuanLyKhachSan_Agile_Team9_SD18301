@@ -33,10 +33,10 @@ namespace QuanLyKhachSan.View.Staff
             //lstCustomer = JsonSerializer.Deserialize<List<Customer>>(rawCus);
 
 
-            LoadData();
+            LoadData(null);
         }
 
-        public void LoadData()
+        public void LoadData(string search)
         {
             int stt = 1;
             Type type = typeof(Room);
@@ -54,12 +54,26 @@ namespace QuanLyKhachSan.View.Staff
             for (int i = 0; i < lstRoom.Count; i++)
             {
 
-                dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID);
-                if (lstRoom[i].Status == false)
+                if (string.IsNullOrEmpty(search))
                 {
-                    dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
-                }
+                    dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID);
+                    if (lstRoom[i].Status == false)
+                    {
+                        dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                    }
 
+                }
+                else
+                {
+                    if (lstRoom[i].RoomName.Contains(search))
+                    {
+                        dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID);
+                        if (lstRoom[i].Status == false)
+                        {
+                            dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                        }
+                    }
+                }
 
             }
             //(from ojb in lstRoom 
@@ -117,6 +131,10 @@ namespace QuanLyKhachSan.View.Staff
             viewRoomSatus.ShowDialog();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadData(txtSearch.Text);
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             OrderService orderService = new OrderService();

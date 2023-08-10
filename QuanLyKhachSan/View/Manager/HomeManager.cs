@@ -122,5 +122,11 @@ namespace QuanLyKhachSan.View.Manager
             StaffManage staffManage = new StaffManage();
             staffManage.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CurrentCustomer ab = new CurrentCustomer();
+            ab.ShowDialog();
+        }
     }
 }

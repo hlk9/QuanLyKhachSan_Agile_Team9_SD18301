@@ -40,6 +40,7 @@
             label2 = new Label();
             lblCurrentRoom = new Label();
             btnConfirm = new Button();
+            checkMany = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dtgRoom).BeginInit();
             SuspendLayout();
             // 
@@ -50,23 +51,22 @@
             dtgRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgRoom.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dtgRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgRoom.Location = new Point(14, 316);
-            dtgRoom.Margin = new Padding(3, 4, 3, 4);
+            dtgRoom.Location = new Point(12, 237);
             dtgRoom.Name = "dtgRoom";
             dtgRoom.ReadOnly = true;
             dtgRoom.RowHeadersWidth = 51;
             dtgRoom.RowTemplate.Height = 25;
             dtgRoom.ShowEditingIcon = false;
-            dtgRoom.Size = new Size(887, 268);
+            dtgRoom.Size = new Size(776, 201);
             dtgRoom.TabIndex = 0;
             dtgRoom.CellClick += dtgRoom_CellClick;
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 12);
+            label1.Location = new Point(10, 9);
             label1.Name = "label1";
-            label1.Size = new Size(890, 61);
+            label1.Size = new Size(779, 46);
             label1.TabIndex = 1;
             label1.Text = "Trả Phòng";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -75,9 +75,9 @@
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblName.Location = new Point(14, 122);
+            lblName.Location = new Point(12, 92);
             lblName.Name = "lblName";
-            lblName.Size = new Size(63, 23);
+            lblName.Size = new Size(52, 19);
             lblName.TabIndex = 2;
             lblName.Text = "Họ Tên";
             lblName.TextAlign = ContentAlignment.MiddleLeft;
@@ -86,9 +86,9 @@
             // 
             lblRoom.AutoSize = true;
             lblRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblRoom.Location = new Point(12, 211);
+            lblRoom.Location = new Point(10, 158);
             lblRoom.Name = "lblRoom";
-            lblRoom.Size = new Size(60, 23);
+            lblRoom.Size = new Size(49, 19);
             lblRoom.TabIndex = 3;
             lblRoom.Text = "Phòng";
             lblRoom.TextAlign = ContentAlignment.MiddleLeft;
@@ -97,27 +97,26 @@
             // 
             lblTotalCost.BorderStyle = BorderStyle.FixedSingle;
             lblTotalCost.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTotalCost.Location = new Point(714, 149);
+            lblTotalCost.Location = new Point(625, 112);
             lblTotalCost.Name = "lblTotalCost";
-            lblTotalCost.Size = new Size(186, 89);
+            lblTotalCost.Size = new Size(163, 67);
             lblTotalCost.TabIndex = 4;
             lblTotalCost.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtFrom
             // 
-            txtFrom.Location = new Point(370, 122);
-            txtFrom.Margin = new Padding(3, 4, 3, 4);
+            txtFrom.Location = new Point(324, 92);
             txtFrom.Name = "txtFrom";
             txtFrom.ReadOnly = true;
-            txtFrom.Size = new Size(206, 27);
+            txtFrom.Size = new Size(181, 23);
             txtFrom.TabIndex = 5;
             // 
             // label5
             // 
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(279, 122);
+            label5.Location = new Point(244, 92);
             label5.Name = "label5";
-            label5.Size = new Size(85, 27);
+            label5.Size = new Size(74, 20);
             label5.TabIndex = 6;
             label5.Text = "Thời gian";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -125,28 +124,27 @@
             // label6
             // 
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(279, 211);
+            label6.Location = new Point(244, 158);
             label6.Name = "label6";
-            label6.Size = new Size(85, 27);
+            label6.Size = new Size(74, 20);
             label6.TabIndex = 7;
             label6.Text = "Tới";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtTo
             // 
-            txtTo.Location = new Point(370, 211);
-            txtTo.Margin = new Padding(3, 4, 3, 4);
+            txtTo.Location = new Point(324, 158);
             txtTo.Name = "txtTo";
             txtTo.ReadOnly = true;
-            txtTo.Size = new Size(206, 27);
+            txtTo.Size = new Size(181, 23);
             txtTo.TabIndex = 8;
             // 
             // label2
             // 
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(714, 122);
+            label2.Location = new Point(625, 92);
             label2.Name = "label2";
-            label2.Size = new Size(186, 27);
+            label2.Size = new Size(163, 20);
             label2.TabIndex = 9;
             label2.Text = "Tổng tiền";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -154,29 +152,39 @@
             // lblCurrentRoom
             // 
             lblCurrentRoom.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCurrentRoom.Location = new Point(14, 265);
+            lblCurrentRoom.Location = new Point(12, 199);
             lblCurrentRoom.Name = "lblCurrentRoom";
-            lblCurrentRoom.Size = new Size(350, 47);
+            lblCurrentRoom.Size = new Size(306, 35);
             lblCurrentRoom.TabIndex = 10;
             lblCurrentRoom.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnConfirm
             // 
             btnConfirm.BackColor = Color.LightGreen;
-            btnConfirm.Location = new Point(714, 265);
-            btnConfirm.Margin = new Padding(3, 4, 3, 4);
+            btnConfirm.Location = new Point(625, 199);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(186, 47);
+            btnConfirm.Size = new Size(163, 35);
             btnConfirm.TabIndex = 11;
             btnConfirm.Text = "Xác nhận đã thanh toán";
             btnConfirm.UseVisualStyleBackColor = false;
             btnConfirm.Click += btnConfirm_Click;
             // 
+            // checkMany
+            // 
+            checkMany.AutoSize = true;
+            checkMany.Location = new Point(462, 208);
+            checkMany.Name = "checkMany";
+            checkMany.Size = new Size(157, 19);
+            checkMany.TabIndex = 12;
+            checkMany.Text = "Thanh toán nhiều phòng";
+            checkMany.UseVisualStyleBackColor = true;
+            // 
             // FormCheckOutRoom
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
+            Controls.Add(checkMany);
             Controls.Add(btnConfirm);
             Controls.Add(lblCurrentRoom);
             Controls.Add(label2);
@@ -189,7 +197,6 @@
             Controls.Add(lblName);
             Controls.Add(label1);
             Controls.Add(dtgRoom);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormCheckOutRoom";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCheckOutRoom";
@@ -212,5 +219,6 @@
         private Label label2;
         private Label lblCurrentRoom;
         private Button btnConfirm;
+        private CheckBox checkMany;
     }
 }
