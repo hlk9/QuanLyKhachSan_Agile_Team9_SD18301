@@ -1,4 +1,5 @@
 ﻿using QuanLyKhachSan.Modal;
+using QuanLyKhachSan.View.Manager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,7 @@ namespace QuanLyKhachSan
                 User usr = lstUser.FirstOrDefault(x => x.UserName == txtUserName.Text);
                 if (usr != null)
                 {
-                    if(txtPassword.Text == usr.Password)
+                    if (txtPassword.Text == usr.Password)
                     {
                         string a = usr.Role[0];
                         if (usr.Role[0].Contains("Staff"))
@@ -47,14 +48,17 @@ namespace QuanLyKhachSan
                         }
                         else//for manager or someone else
                         {
-
-                        }    
+                            HomeManager mng = new HomeManager();
+                            mng.Show();
+                            mng.FormClosed += StaffHome_FormClosed;
+                            this.Hide();
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng");
-                    }    
-                        
+                    }
+
                 }
             }
             catch

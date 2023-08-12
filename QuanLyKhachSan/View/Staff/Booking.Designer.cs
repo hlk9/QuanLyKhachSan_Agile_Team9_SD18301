@@ -51,6 +51,8 @@
             btnClose = new Button();
             btnSave = new Button();
             lblHienThi = new Label();
+            txtDv = new TextBox();
+            label3 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
@@ -69,15 +71,17 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(25, 55);
+            label2.Location = new Point(25, 36);
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
             label2.TabIndex = 2;
-            label2.Text = "Đặt Phỏng:";
+            label2.Text = "Đặt Phòng:";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtDv);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(dtpCheckOut);
             groupBox1.Controls.Add(dtpCheckIn);
             groupBox1.Controls.Add(txtRoomID);
@@ -113,7 +117,7 @@
             // txtRoomID
             // 
             txtRoomID.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRoomID.Location = new Point(156, 54);
+            txtRoomID.Location = new Point(156, 35);
             txtRoomID.Name = "txtRoomID";
             txtRoomID.Size = new Size(204, 27);
             txtRoomID.TabIndex = 8;
@@ -263,7 +267,7 @@
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.Red;
+            btnClose.BackColor = Color.White;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnClose.Location = new Point(561, 677);
             btnClose.Name = "btnClose";
@@ -275,7 +279,7 @@
             // 
             // btnSave
             // 
-            btnSave.BackColor = SystemColors.ActiveCaption;
+            btnSave.BackColor = Color.White;
             btnSave.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnSave.Location = new Point(694, 677);
             btnSave.Name = "btnSave";
@@ -295,7 +299,24 @@
             lblHienThi.Size = new Size(826, 51);
             lblHienThi.TabIndex = 10;
             lblHienThi.TextAlign = ContentAlignment.MiddleCenter;
-            lblHienThi.Click += lblHienThi_Click;
+            // 
+            // txtDv
+            // 
+            txtDv.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDv.Location = new Point(156, 73);
+            txtDv.Name = "txtDv";
+            txtDv.Size = new Size(204, 27);
+            txtDv.TabIndex = 17;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(25, 74);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 25);
+            label3.TabIndex = 16;
+            label3.Text = "Dịch Vụ (Nếu có):";
+            label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // Booking
             // 
@@ -345,5 +366,7 @@
         private DateTimePicker dtpCheckOut;
         private DateTimePicker dtpCheckIn;
         private Label lblHienThi;
+        private TextBox txtDv;
+        private Label label3;
     }
 }

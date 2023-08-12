@@ -40,7 +40,7 @@
             dtgViewstatus.Name = "dtgViewstatus";
             dtgViewstatus.RowHeadersWidth = 51;
             dtgViewstatus.RowTemplate.Height = 29;
-            dtgViewstatus.Size = new Size(561, 134);
+            dtgViewstatus.Size = new Size(561, 248);
             dtgViewstatus.TabIndex = 0;
             dtgViewstatus.CellClick += dtgViewstatus_CellClick;
             // 
@@ -57,7 +57,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(583, 227);
+            ClientSize = new Size(583, 338);
             Controls.Add(lblShow);
             Controls.Add(dtgViewstatus);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

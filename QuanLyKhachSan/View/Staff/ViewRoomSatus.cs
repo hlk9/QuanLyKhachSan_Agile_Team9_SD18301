@@ -51,7 +51,7 @@ namespace QuanLyKhachSan
         {
             int rowIndex = e.RowIndex;
 
-            if (rowIndex < 0)
+            if (rowIndex < 0 || listRoom.Count == rowIndex)
             {
                 return;
             }

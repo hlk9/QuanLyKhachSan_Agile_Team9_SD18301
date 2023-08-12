@@ -73,7 +73,6 @@ namespace QuanLyKhachSan
             if (rowIndex < 0)
             {
                 txtRoomID.Text = "";
-                txtCost.Text = "";
                 return;
             }
             else
@@ -90,6 +89,7 @@ namespace QuanLyKhachSan
             Customer cus = new Customer();
 
             string[] arrRoom = txtRoomID.Text.Split(',');
+            string[] arrService = txtDv.Text.Split(",");
             cus.IdCustomer = Guid.NewGuid().ToString();
             cus.Name = txtName.Text;
             cus.Email = txtEmail.Text;
@@ -106,7 +106,11 @@ namespace QuanLyKhachSan
                     bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
                     bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
                     bill.TotalCost = double.Parse(x.Cost.ToString());
-                    bill.RoomID = arrRoom[i];
+                    bill.RoomID =x.RoomID;
+                    if (arrService.Length > 0)
+                    {
+                        bill.ServiceID = arrService;
+                    }
                     bill.IdCustomer = cus.IdCustomer.ToString();
                     try
                     {
@@ -115,13 +119,14 @@ namespace QuanLyKhachSan
 
                         for (int y = 0; y < listRoom.Count; y++)
                         {
-                            if (listRoom[y].RoomName == arrRoom[i])
+                            if (listRoom[y].RoomID == bill.RoomID)
                             {
                                 listRoom[y].Status = false;
+                                MessageBox.Show("Đặt phòng " + listRoom[y].RoomName +" thành công!!");
                                 continue;
                             }
                         }
-                        MessageBox.Show("Đặt phòng thành công!!");
+                       
                     }
                     catch { }
                 }
@@ -139,9 +144,10 @@ namespace QuanLyKhachSan
             loadData();
         }
 
-        private void lblHienThi_Click(object sender, EventArgs e)
-        {
-
-        }
+        //private bool checkInput()
+        //{
+        //    int error = 0;
+        //    var checkBox =
+        //}
     }
 }

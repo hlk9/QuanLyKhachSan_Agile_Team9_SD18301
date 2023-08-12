@@ -33,10 +33,10 @@ namespace QuanLyKhachSan.View.Staff
             //lstCustomer = JsonSerializer.Deserialize<List<Customer>>(rawCus);
 
 
-            LoadData();
+            LoadData(null);
         }
 
-        public void LoadData()
+        public void LoadData(string search)
         {
             int stt = 1;
             Type type = typeof(Room);
@@ -54,12 +54,26 @@ namespace QuanLyKhachSan.View.Staff
             for (int i = 0; i < lstRoom.Count; i++)
             {
 
-                dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID);
-                if (lstRoom[i].Status == false)
+                if (string.IsNullOrEmpty(search))
                 {
-                    dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
-                }
+                    dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID);
+                    if (lstRoom[i].Status == false)
+                    {
+                        dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                    }
 
+                }
+                else
+                {
+                    if (lstRoom[i].RoomName.Contains(search))
+                    {
+                        dtgListRoom.Rows.Add(stt++, lstRoom[i].RoomName, lstRoom[i].RoomClass, lstRoom[i].Status == true ? "Trống" : "Đang phục vụ", lstRoom[i].Cost, lstRoom[i].RoomID);
+                        if (lstRoom[i].Status == false)
+                        {
+                            dtgListRoom.Rows[i].Cells[3].Style.ForeColor = Color.Red;
+                        }
+                    }
+                }
 
             }
             //(from ojb in lstRoom 
@@ -69,7 +83,8 @@ namespace QuanLyKhachSan.View.Staff
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Cancel_Room a = new Cancel_Room();
+            a.ShowDialog();
         }
 
         private void dtgListRoom_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,7 +104,7 @@ namespace QuanLyKhachSan.View.Staff
         {
 
             FormCheckOutRoom a = new FormCheckOutRoom();
-            a.Show();
+            a.ShowDialog();
 
         }
 
@@ -101,7 +116,29 @@ namespace QuanLyKhachSan.View.Staff
         private void btnDatphong_Click(object sender, EventArgs e)
         {
             Booking booking = new Booking();
-            booking.Show();           
+            booking.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ViewRoomSatus viewRoomSatus = new ViewRoomSatus();
+            viewRoomSatus.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadData(txtSearch.Text);
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OrderService orderService = new OrderService();
+            orderService.ShowDialog();
         }
     }
 }
