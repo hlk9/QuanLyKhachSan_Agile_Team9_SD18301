@@ -160,7 +160,7 @@
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(94, 38);
             btnClose.TabIndex = 5;
-            btnClose.Text = "Cancel";
+            btnClose.Text = "Clear Form";
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 

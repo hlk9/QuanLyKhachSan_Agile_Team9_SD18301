@@ -55,6 +55,7 @@
             btnSave = new Button();
             lblHienThi = new Label();
             errorProvider1 = new ErrorProvider(components);
+            btnClear = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
@@ -289,7 +290,7 @@
             // 
             btnClose.BackColor = Color.White;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.Location = new Point(561, 677);
+            btnClose.Location = new Point(37, 677);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(115, 46);
             btnClose.TabIndex = 8;
@@ -324,11 +325,23 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btnClear
+            // 
+            btnClear.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnClear.Location = new Point(540, 677);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(119, 46);
+            btnClear.TabIndex = 11;
+            btnClear.Text = "Clear Form";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(850, 749);
+            Controls.Add(btnClear);
             Controls.Add(lblHienThi);
             Controls.Add(btnSave);
             Controls.Add(btnClose);
@@ -376,5 +389,6 @@
         private TextBox txtDv;
         private Label label3;
         private ErrorProvider errorProvider1;
+        private Button btnClear;
     }
 }

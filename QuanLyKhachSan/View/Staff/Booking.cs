@@ -21,6 +21,8 @@ namespace QuanLyKhachSan
 
         List<Customer> listCus = new List<Customer>();
 
+        List<Services> listSer = new List<Services>();
+
         string _roomID;
 
         public Booking()
@@ -34,6 +36,10 @@ namespace QuanLyKhachSan
 
             string rawCus = File.ReadAllText("CustomerData.json");
             listCus = JsonSerializer.Deserialize<List<Customer>>(rawCus);
+
+            string rawService = File.ReadAllText("ServiceData.json");
+            listSer = JsonSerializer.Deserialize<List<Services>>(rawService);
+
             loadData();
         }
 
@@ -41,7 +47,7 @@ namespace QuanLyKhachSan
         {
             int error = 0;
 
-            if(!Regex.IsMatch(txtEmail.Text, @"[a-zA-Z0-9]+@[a-zA-Z]{1,5}\.[a-z]{2,3}$") && txtEmail.Text != "")
+            if (!Regex.IsMatch(txtEmail.Text, @"[a-zA-Z0-9]+@[a-zA-Z]{1,5}\.[a-z]{2,3}$") && txtEmail.Text != "")
             {
                 errorProvider1.SetError(txtEmail, "Định dạng Email không đúng");
                 error++;
@@ -51,7 +57,7 @@ namespace QuanLyKhachSan
                 errorProvider1.SetError(txtEmail, "");
             }
 
-            if(!Regex.IsMatch(txtPhone.Text, @"(09|08|03)[0-9]{8}$"))
+            if (!Regex.IsMatch(txtPhone.Text, @"(09|08|03)[0-9]{8}$"))
             {
                 errorProvider1.SetError(txtPhone, "Định dạng số ĐT không đúng");
                 error++;
@@ -164,21 +170,36 @@ namespace QuanLyKhachSan
             if (checkInput())
             {
                 string[] arrRoom = txtRoomID.Text.Split(',');
+                string[] arrService = txtDv.Text.Split(",");
 
                 for (int a = 0; a < arrRoom.Length; a++)
                 {
                     var z = listRoom.FirstOrDefault(af => af.RoomName == arrRoom[a]);
 
-                    if(z == null)
+                    if (z == null)
                     {
                         MessageBox.Show($"Không có phòng này {arrRoom[a]}");
                         return;
                     }
                 }
 
+                if (txtDv.Text != "")
+                {
+                    for (int b = 0; b < arrService.Length; b++)
+                    {
+                        var t = listSer.FirstOrDefault(af => af.Id == arrService[b]);
+
+                        if (t == null)
+                        {
+                            MessageBox.Show($"Không có dịch vụ này {arrService[b]}");
+                            return;
+                        }
+                    }
+                }
+
                 Customer cus = new Customer();
-                
-                string[] arrService = txtDv.Text.Split(",");
+
+
                 cus.IdCustomer = Guid.NewGuid().ToString();
                 cus.Name = txtName.Text;
                 cus.Email = txtEmail.Text;
@@ -233,6 +254,17 @@ namespace QuanLyKhachSan
                 loadData();
             }
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtRoomID.Clear();
+            txtDv.Clear();
+            txtCMND.Clear();
+            txtName.Clear();
+            txtPhone.Clear();
+            rtxtNote.Clear();
+            txtEmail.Clear();
         }
 
         //private bool checkInput()
