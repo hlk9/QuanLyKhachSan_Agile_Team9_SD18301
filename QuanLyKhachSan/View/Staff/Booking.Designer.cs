@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
+            txtDv = new TextBox();
+            label3 = new Label();
             dtpCheckOut = new DateTimePicker();
             dtpCheckIn = new DateTimePicker();
             txtRoomID = new TextBox();
@@ -51,11 +54,11 @@
             btnClose = new Button();
             btnSave = new Button();
             lblHienThi = new Label();
-            txtDv = new TextBox();
-            label3 = new Label();
+            errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -95,6 +98,24 @@
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin đặt phòng";
+            // 
+            // txtDv
+            // 
+            txtDv.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDv.Location = new Point(156, 73);
+            txtDv.Name = "txtDv";
+            txtDv.Size = new Size(204, 27);
+            txtDv.TabIndex = 17;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(25, 74);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 25);
+            label3.TabIndex = 16;
+            label3.Text = "Dịch Vụ (Nếu có):";
+            label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // dtpCheckOut
             // 
@@ -299,23 +320,9 @@
             lblHienThi.TabIndex = 10;
             lblHienThi.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtDv
+            // errorProvider1
             // 
-            txtDv.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDv.Location = new Point(156, 73);
-            txtDv.Name = "txtDv";
-            txtDv.Size = new Size(204, 27);
-            txtDv.TabIndex = 17;
-            // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(25, 74);
-            label3.Name = "label3";
-            label3.Size = new Size(125, 25);
-            label3.TabIndex = 16;
-            label3.Text = "Dịch Vụ (Nếu có):";
-            label3.TextAlign = ContentAlignment.MiddleRight;
+            errorProvider1.ContainerControl = this;
             // 
             // Booking
             // 
@@ -338,6 +345,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -367,5 +375,6 @@
         private Label lblHienThi;
         private TextBox txtDv;
         private Label label3;
+        private ErrorProvider errorProvider1;
     }
 }

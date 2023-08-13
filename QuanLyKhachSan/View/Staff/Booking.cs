@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyKhachSan.Modal;
+using System.Text.RegularExpressions;
 
 namespace QuanLyKhachSan
 {
@@ -34,6 +35,80 @@ namespace QuanLyKhachSan
             string rawCus = File.ReadAllText("CustomerData.json");
             listCus = JsonSerializer.Deserialize<List<Customer>>(rawCus);
             loadData();
+        }
+
+        private bool checkInput()
+        {
+            int error = 0;
+
+            if(!Regex.IsMatch(txtEmail.Text, @"[a-zA-Z0-9]+@[a-zA-Z]{1,5}\.[a-z]{2,3}$") && txtEmail.Text != "")
+            {
+                errorProvider1.SetError(txtEmail, "Định dạng Email không đúng");
+                error++;
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, "");
+            }
+
+            if(!Regex.IsMatch(txtPhone.Text, @"(09|08|03)[0-9]{8}$"))
+            {
+                errorProvider1.SetError(txtPhone, "Định dạng số ĐT không đúng");
+                error++;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPhone, "");
+            }
+
+            if (txtRoomID.Text == "")
+            {
+                errorProvider1.SetError(txtRoomID, "Không được để trống!");
+                error++;
+            }
+            else
+            {
+                errorProvider1.SetError(txtRoomID, "");
+            }
+
+            if (txtName.Text == "")
+            {
+                errorProvider1.SetError(txtName, "Không được để trống!");
+                error++;
+            }
+            else
+            {
+                errorProvider1.SetError(txtName, "");
+            }
+
+            if (txtCMND.Text == "")
+            {
+                errorProvider1.SetError(txtCMND, "Không được để trống!");
+                error++;
+            }
+            else
+            {
+                errorProvider1.SetError(txtCMND, "");
+            }
+
+            if (txtPhone.Text == "")
+            {
+                errorProvider1.SetError(txtPhone, "Không được để trống!");
+                error++;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPhone, "");
+            }
+
+            if (error == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void loadData()
@@ -86,62 +161,78 @@ namespace QuanLyKhachSan
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Customer cus = new Customer();
-
-            string[] arrRoom = txtRoomID.Text.Split(',');
-            string[] arrService = txtDv.Text.Split(",");
-            cus.IdCustomer = Guid.NewGuid().ToString();
-            cus.Name = txtName.Text;
-            cus.Email = txtEmail.Text;
-            cus.PhoneNumer = txtPhone.Text;
-            cus.CMND = txtCMND.Text;
-
-            for (int i = 0; i < arrRoom.Length; i++)
+            if (checkInput())
             {
-                var x = listRoom.FirstOrDefault(a => a.RoomName == arrRoom[i]);
-                if (x != null)
-                {
-                    Bill bill = new Bill();
-                    bill.IdBill = Guid.NewGuid().ToString();
-                    bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
-                    bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
-                    bill.TotalCost = double.Parse(x.Cost.ToString());
-                    bill.RoomID =x.RoomID;
-                    if (arrService.Length > 0)
-                    {
-                        bill.ServiceID = arrService;
-                    }
-                    bill.IdCustomer = cus.IdCustomer.ToString();
-                    try
-                    {
-                        listBill.Add(bill);
-                        listCus.Add(cus);
+                string[] arrRoom = txtRoomID.Text.Split(',');
 
-                        for (int y = 0; y < listRoom.Count; y++)
-                        {
-                            if (listRoom[y].RoomID == bill.RoomID)
-                            {
-                                listRoom[y].Status = false;
-                                MessageBox.Show("Đặt phòng " + listRoom[y].RoomName +" thành công!!");
-                                continue;
-                            }
-                        }
-                       
+                for (int a = 0; a < arrRoom.Length; a++)
+                {
+                    var z = listRoom.FirstOrDefault(af => af.RoomName == arrRoom[a]);
+
+                    if(z == null)
+                    {
+                        MessageBox.Show($"Không có phòng này {arrRoom[a]}");
+                        return;
                     }
-                    catch { }
                 }
+
+                Customer cus = new Customer();
+                
+                string[] arrService = txtDv.Text.Split(",");
+                cus.IdCustomer = Guid.NewGuid().ToString();
+                cus.Name = txtName.Text;
+                cus.Email = txtEmail.Text;
+                cus.PhoneNumer = txtPhone.Text;
+                cus.CMND = txtCMND.Text;
+
+                for (int i = 0; i < arrRoom.Length; i++)
+                {
+                    var x = listRoom.FirstOrDefault(a => a.RoomName == arrRoom[i]);
+                    if (x != null)
+                    {
+                        Bill bill = new Bill();
+                        bill.IdBill = Guid.NewGuid().ToString();
+                        bill.BookingDate = DateTime.Parse(dtpCheckIn.Text);
+                        bill.CheckOutDate = DateTime.Parse(dtpCheckOut.Text);
+                        bill.TotalCost = double.Parse(x.Cost.ToString());
+                        bill.RoomID = x.RoomID;
+                        if (arrService.Length > 0)
+                        {
+                            bill.ServiceID = arrService;
+                        }
+                        bill.IdCustomer = cus.IdCustomer.ToString();
+                        try
+                        {
+                            listBill.Add(bill);
+                            listCus.Add(cus);
+
+                            for (int y = 0; y < listRoom.Count; y++)
+                            {
+                                if (listRoom[y].RoomID == bill.RoomID)
+                                {
+                                    listRoom[y].Status = false;
+                                    MessageBox.Show("Đặt phòng " + listRoom[y].RoomName + " thành công!!");
+                                    continue;
+                                }
+                            }
+
+                        }
+                        catch { }
+                    }
+                }
+
+                string rawBill = JsonSerializer.Serialize(listBill);
+                File.WriteAllText("BillData.json", rawBill);
+
+                string rawCus = JsonSerializer.Serialize(listCus);
+                File.WriteAllText("CustomerData.json", rawCus);
+
+                string rawRoom = JsonSerializer.Serialize(listRoom);
+                File.WriteAllText("RoomData.json", rawRoom);
+
+                loadData();
             }
 
-            string rawBill = JsonSerializer.Serialize(listBill);
-            File.WriteAllText("BillData.json", rawBill);
-
-            string rawCus = JsonSerializer.Serialize(listCus);
-            File.WriteAllText("CustomerData.json", rawCus);
-
-            string rawRoom = JsonSerializer.Serialize(listRoom);
-            File.WriteAllText("RoomData.json", rawRoom);
-
-            loadData();
         }
 
         //private bool checkInput()
