@@ -84,9 +84,7 @@ namespace QuanLyKhachSan.View.Staff
 
 
             }
-            //(from ojb in lstRoom 
-            //where ojb.RoomID == ID 
-            //select ojb).ToList().Foreach(x=>x.
+         
         }
 
         private void dtgRoom_CellClick(object sender, DataGridViewCellEventArgs e)

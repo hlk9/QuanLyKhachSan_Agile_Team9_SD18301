@@ -48,7 +48,7 @@ namespace QuanLyKhachSan.View.Staff
 
             foreach (Bill bill in lstBill)
             {
-                if (bill.IsPaid == true)
+                if (bill.IsPaid == false)
                 {
 
                     foreach (Customer customer in lstCustomer)
@@ -120,11 +120,11 @@ namespace QuanLyKhachSan.View.Staff
                                     File.WriteAllText("RoomData.json", JsonSerializer.Serialize(lstRoom));
                                     MessageBox.Show("Xoá thành công");
                                     LoadData();
-                                    break;
+                                    return;
                                 }
 
                             }
-                            break;
+                            
                         }
                     }
 

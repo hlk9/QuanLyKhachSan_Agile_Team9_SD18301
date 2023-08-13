@@ -8,10 +8,11 @@ namespace QuanLyKhachSan
         {
 
             InitializeComponent();
-            //GenerateUser();
+            GenerateUser();
             //123
-            //GenerateCustomer();
-            //GenerateBill();
+            GenerateRoom();
+            GenerateCustomer();
+            GenerateBill();
 
             MessageBox.Show(dateTimePicker1.Text);
 
