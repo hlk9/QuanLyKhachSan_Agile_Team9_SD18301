@@ -29,8 +29,8 @@ namespace QuanLyKhachSan
         private bool checkInput()
         {
             int error = 0;
-            
-            if(txtCost.Text == "")
+
+            if (txtCost.Text == "")
             {
                 errorProvider1.SetError(txtCost, "Không được để trống!!");
                 error++;
@@ -71,123 +71,127 @@ namespace QuanLyKhachSan
             }
         }
 
-    private void loadData()
-    {
-        int stt = 1;
-        dtgSer.ColumnCount = 4;
-
-        dtgSer.Columns[0].Name = "STT";
-        dtgSer.Columns[1].Name = "Service ID";
-        dtgSer.Columns[2].Name = "Service Name";
-        dtgSer.Columns[3].Name = "Service Cost";
-        dtgSer.Rows.Clear();
-
-        foreach (var x in lstSer)
+        private void loadData()
         {
-            dtgSer.Rows.Add(stt++, x.Id, x.Name, x.Cost);
-        }
-    }
+            int stt = 1;
+            dtgSer.ColumnCount = 4;
 
-    private void dtgSer_CellClick(object sender, DataGridViewCellEventArgs e)
-    {
-        int rowIndex = e.RowIndex;
+            dtgSer.Columns[0].Name = "STT";
+            dtgSer.Columns[1].Name = "Service ID";
+            dtgSer.Columns[2].Name = "Service Name";
+            dtgSer.Columns[3].Name = "Service Cost";
+            dtgSer.Rows.Clear();
 
-        if (rowIndex < 0)
-        {
-            return;
-        }
-        else
-        {
-            txtID.Enabled = false;
-            _idWhenClick = dtgSer.Rows[rowIndex].Cells[1].Value.ToString();
-            var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
-
-            txtID.Text = obj.Id;
-            txtName.Text = obj.Name;
-            txtCost.Text = obj.Cost;
-        }
-    }
-
-    private void btnSave_Click(object sender, EventArgs e)
-    {
-        if (checkInput())
-        {
-            if (txtID.Text == lstSer.Select(x => x.Id).FirstOrDefault())
+            foreach (var x in lstSer)
             {
-                MessageBox.Show("Đã có mã này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dtgSer.Rows.Add(stt++, x.Id, x.Name, x.Cost);
+            }
+        }
+
+        private void dtgSer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            if (rowIndex < 0)
+            {
                 return;
             }
+            else
+            {
+                btnSave.Enabled = false;
+                txtID.Enabled = false;
+                _idWhenClick = dtgSer.Rows[rowIndex].Cells[1].Value.ToString();
+                var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
 
-            Services ser = new Services();
-
-            ser.Id = txtID.Text;
-            ser.Name = txtName.Text;
-            ser.Cost = txtCost.Text;
-
-            lstSer.Add(ser);
-
-            var rawSer = JsonSerializer.Serialize(lstSer);
-            File.WriteAllText("ServiceData.json", rawSer);
-
-            MessageBox.Show("Thêm thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            loadData();
+                txtID.Text = obj.Id;
+                txtName.Text = obj.Name;
+                txtCost.Text = obj.Cost;
+            }
         }
 
-    }
-
-    private void btnUpdate_Click(object sender, EventArgs e)
-    {
-        if (checkInput())
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
+            if (checkInput())
+            {
+                if (txtID.Text == lstSer.Select(x => x.Id).FirstOrDefault())
+                {
+                    MessageBox.Show("Đã có mã này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            obj.Id = txtID.Text;
-            obj.Name = txtName.Text;
-            obj.Cost = txtCost.Text;
+                Services ser = new Services();
 
-            var rawSer = JsonSerializer.Serialize(lstSer);
-            File.WriteAllText("ServiceData.json", rawSer);
+                ser.Id = txtID.Text;
+                ser.Name = txtName.Text;
+                ser.Cost = txtCost.Text;
 
-            MessageBox.Show("Sửa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lstSer.Add(ser);
 
-            loadData();
+                var rawSer = JsonSerializer.Serialize(lstSer);
+                File.WriteAllText("ServiceData.json", rawSer);
 
-            txtID.Enabled = true;
+                MessageBox.Show("Thêm thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadData();
+            }
 
-            txtID.Text = "";
-            txtName.Text = "";
-            txtCost.Text = "";
         }
 
-    }
-
-    private void btnDelete_Click(object sender, EventArgs e)
-    {
-        if (checkInput())
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
+            if (checkInput())
+            {
+                var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
 
-            lstSer.Remove(obj);
+                obj.Id = txtID.Text;
+                obj.Name = txtName.Text;
+                obj.Cost = txtCost.Text;
 
-            var rawSer = JsonSerializer.Serialize(lstSer);
-            File.WriteAllText("ServiceData.json", rawSer);
+                var rawSer = JsonSerializer.Serialize(lstSer);
+                File.WriteAllText("ServiceData.json", rawSer);
 
-            MessageBox.Show("Xóa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            loadData();
+                loadData();
 
-            txtID.Enabled = true;
+                txtID.Enabled = true;
+                btnSave.Enabled = true;
+                txtID.Text = "";
+                txtName.Text = "";
+                txtCost.Text = "";
+            }
 
-            txtID.Text = "";
-            txtName.Text = "";
-            txtCost.Text = "";
         }
 
-    }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (checkInput())
+            {
+                var obj = lstSer.FirstOrDefault(x => x.Id == _idWhenClick);
 
-    private void btnClose_Click(object sender, EventArgs e)
-    {
-        Application.Exit();
+                lstSer.Remove(obj);
+
+                var rawSer = JsonSerializer.Serialize(lstSer);
+                File.WriteAllText("ServiceData.json", rawSer);
+
+                MessageBox.Show("Xóa thành công!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                loadData();
+
+                txtID.Enabled = true;
+                btnSave.Enabled = true;
+                txtID.Text = "";
+                txtName.Text = "";
+                txtCost.Text = "";
+            }
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            txtName.Clear();
+            txtCost.Clear();
+            txtID.Clear();
+            btnSave.Enabled = true;
+        }
     }
-}
 }

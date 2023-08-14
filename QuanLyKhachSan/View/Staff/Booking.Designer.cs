@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
+            txtDv = new TextBox();
+            label3 = new Label();
             dtpCheckOut = new DateTimePicker();
             dtpCheckIn = new DateTimePicker();
             txtRoomID = new TextBox();
@@ -51,11 +54,12 @@
             btnClose = new Button();
             btnSave = new Button();
             lblHienThi = new Label();
-            txtDv = new TextBox();
-            label3 = new Label();
+            errorProvider1 = new ErrorProvider(components);
+            btnClear = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -95,6 +99,24 @@
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin đặt phòng";
+            // 
+            // txtDv
+            // 
+            txtDv.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDv.Location = new Point(156, 73);
+            txtDv.Name = "txtDv";
+            txtDv.Size = new Size(204, 27);
+            txtDv.TabIndex = 17;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label3.Location = new Point(25, 74);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 25);
+            label3.TabIndex = 16;
+            label3.Text = "Dịch Vụ (Nếu có):";
+            label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // dtpCheckOut
             // 
@@ -269,7 +291,7 @@
             // 
             btnClose.BackColor = Color.White;
             btnClose.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnClose.Location = new Point(561, 677);
+            btnClose.Location = new Point(37, 677);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(115, 46);
             btnClose.TabIndex = 8;
@@ -300,29 +322,27 @@
             lblHienThi.TabIndex = 10;
             lblHienThi.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtDv
+            // errorProvider1
             // 
-            txtDv.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDv.Location = new Point(156, 73);
-            txtDv.Name = "txtDv";
-            txtDv.Size = new Size(204, 27);
-            txtDv.TabIndex = 17;
+            errorProvider1.ContainerControl = this;
             // 
-            // label3
+            // btnClear
             // 
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(25, 74);
-            label3.Name = "label3";
-            label3.Size = new Size(125, 25);
-            label3.TabIndex = 16;
-            label3.Text = "Dịch Vụ (Nếu có):";
-            label3.TextAlign = ContentAlignment.MiddleRight;
+            btnClear.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnClear.Location = new Point(540, 677);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(119, 46);
+            btnClear.TabIndex = 11;
+            btnClear.Text = "Clear Form";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // Booking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(850, 749);
+            Controls.Add(btnClear);
             Controls.Add(lblHienThi);
             Controls.Add(btnSave);
             Controls.Add(btnClose);
@@ -339,6 +359,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgDatPhong).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -368,5 +389,7 @@
         private Label lblHienThi;
         private TextBox txtDv;
         private Label label3;
+        private ErrorProvider errorProvider1;
+        private Button btnClear;
     }
 }
